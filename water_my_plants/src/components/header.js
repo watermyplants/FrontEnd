@@ -10,7 +10,8 @@ const H3 = styled.h3`
 
 const HeaderSignIn = styled.header`
      background: #E0F0E3;
-     margin: 0 0 0 0;
+     margin: 0 280px 0 280px;
+     text-align: center;
      display: flex;
      flex-direction: column;
      justify-content: center;
