@@ -1,4 +1,78 @@
 import React, { useState } from "react";
+import styled from 'styled-components';
+
+const LoginCard = styled.div`
+  background: white;
+  border-radius: 3px;
+  width: 21rem;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 30px 0 30px;
+  margin: 0 auto;
+  color: rgb(145, 143, 143);
+  font-weight: bold;
+`;
+
+const H1SignIn= styled.div`
+  color: rgb(1, 117, 117);
+  font-size: 1.3rem;
+  font-family: 'Raleway';
+`;
+
+const EmailAndPassword = styled.div`
+  text-align: left;
+`;
+
+
+const StyledSignInButton = styled.button`
+  width: 65%;
+  font-family: 'Raleway';
+  color: lightgrey;
+  border-radius: 3px;
+  font-size: 1rem;
+  background: rgb(180, 180, 180);
+  padding: 8px 0 8px 0;
+  border: none;
+  cursor: pointer;
+`;
+
+const BottomSignIn = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const SignUp = styled.h5`
+  cursor: pointer;
+  color: rgb(56, 55, 55);
+`;
+
+
+const Forgot = styled.p`
+font-size: 12px;
+cursor: pointer;
+`;
+
+const StyledInput = styled.input`
+border: none;
+width: 100%;
+outline: none;
+
+`;
+
+const StyledHr = styled.hr`
+width: 95%;
+color: rgb(211, 210, 210);
+
+`;
+
+const Need = styled.p`
+font-size: 13px;
+margin: 22px 10px 0 0;
+
+`;
+
 
 export default function Login() {
   const [signIn, setSignIn] = useState({
@@ -18,52 +92,48 @@ export default function Login() {
   }
 
   return (
-    <div className="login-card">
-      <div className="sign-in">
+    <LoginCard >
         <form onSubmit={submitHandler}>
-          <legend className="sign-in-header">Sign in</legend>
+          <H1SignIn>Sign in</H1SignIn>
           <br />
-          <div className="name">
+          <EmailAndPassword>
             <label>
               Email Address
               <br />
-              <input
-                className="email-input"
+              <StyledInput
                 type="text"
                 name="email"
                 value={signIn.email}
                 placeholder=""
                 onChange={changeHandler}
               />
-              <hr />
+              <StyledHr />
             </label>
-          </div>
-          <div className="password">
+          </EmailAndPassword>
+          <EmailAndPassword>
             <label>
               Password
               <br />
-              <input
-                className="password-input"
+              <StyledInput
                 type="password"
                 name="password"
                 value={signIn.password}
                 placeholder=""
                 onChange={changeHandler}
               />
-              <hr />
+              <StyledHr/>
             </label>
-            <p className="forgot">Forgot your password?</p>
+            <Forgot>Forgot your password?</Forgot>
             <br />
-          </div>
-          <button className="sign-in-button" type="submit">
+          </EmailAndPassword>
+          <StyledSignInButton type="submit">
             Sign In
-          </button>
+          </StyledSignInButton>
         </form>
-        <div className="bottom-signin">
-          <p className="need">Need an account?</p>
-          <h5 className="sign-up-btn">Sign up</h5>
-        </div>
-      </div>
-    </div>
+        <BottomSignIn>
+          <Need>Need an account?</Need>
+          <SignUp>Sign up</SignUp>
+        </BottomSignIn>
+    </LoginCard>
   );
 }
