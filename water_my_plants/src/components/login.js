@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import Header from './header';
 import styled from 'styled-components';
 
 const LoginCard = styled.div`
   background: white;
   border-radius: 3px;
   width: 21rem;
-  height: 380px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +20,7 @@ const H1SignIn= styled.div`
   color: rgb(1, 117, 117);
   font-size: 1.3rem;
   font-family: 'Raleway';
+  margin-top: 20px;
 `;
 
 const EmailAndPassword = styled.div`
@@ -93,6 +95,7 @@ export default function Login() {
 
   return (
     <LoginCard >
+        <Header />
         <form onSubmit={submitHandler}>
           <H1SignIn>Sign in</H1SignIn>
           <br />

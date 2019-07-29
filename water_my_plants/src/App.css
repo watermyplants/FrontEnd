@@ -6,25 +6,3 @@
 body{
   background: #78c885;
 }
-
-
-.forgot{
-  font-size: 12px;
-  cursor: pointer;
-}
-.email-input, .password-input{
-  border: none;
-  width: 100%;
-  outline: none;
-
-}
-hr{
-  width: 95%;
-  color: rgb(211, 210, 210);
-}
-
-
-.need{
-  font-size: 13px;
-  margin: 22px 10px 0 0;
-}
