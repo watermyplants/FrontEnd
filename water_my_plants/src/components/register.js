@@ -1,44 +1,74 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
 const StyledInputDiv = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    //align-items: center;
+    width: 18%;
+    margin: 0 auto;
+    //background-color: #98FB98;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-style: source sans pro;
 `
 const StyledInput = styled.input`
     border: none;
     border-bottom: 1px solid grey;
+    margin-bottom: 5%;
+    height: 30px;
+`
+
+const StyledLabel = styled.label`
+    margin-bottom: 1%;
+    text-align: left;
+`
+
+const StyledButton = styled.button`
+    width: 200px;
+    height: 30px;
+    background-color: #D0D0D0;
+    color: #F3F3F3;
+    border-radius: 2px;
+`
+
+const RegisterFooterDiv = styled.div`
+
 `
 
 function Register() {
 
     return (<div>
         <form>
+            <h2>Sign up</h2>
             <feildset>
                 <StyledInputDiv>
-                    <label>Name</label>
+                    <StyledLabel>Name</StyledLabel>
                     <StyledInput type='text' ></StyledInput>
                 </StyledInputDiv>
                 <StyledInputDiv>
-                <label>Email Address</label>
+                <StyledLabel>Email Address</StyledLabel>
                     <StyledInput type='email' ></StyledInput>
                 </StyledInputDiv>
                 <StyledInputDiv>
-                <label>Password</label>
+                <StyledLabel>Password</StyledLabel>
                     <StyledInput type='password' ></StyledInput>
                 </StyledInputDiv>
                 <StyledInputDiv>
-                <label>Confirm Password</label>
+                <StyledLabel>Confirm Password</StyledLabel>
                     <StyledInput type='password' ></StyledInput>
                 </StyledInputDiv>
                 <StyledInputDiv>
-                <label>Phone number</label>
+                <StyledLabel>Phone number</StyledLabel>
                     <StyledInput type='phone number' ></StyledInput>
                 </StyledInputDiv>
-                <button>Sign Up</button>
+                <StyledButton>Sign Up</StyledButton>
             </feildset>
         </form>
+        <RegisterFooterDiv>
+        
+        </RegisterFooterDiv>
     </div>)
 }
 
