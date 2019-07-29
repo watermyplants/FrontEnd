@@ -10,8 +10,8 @@ body{
 .login-card{
   background: white;
   border-radius: 3px;
-  width: 22rem;;
-  height: 400px;
+  width: 21rem;
+  height: 380px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,15 +21,26 @@ body{
   font-weight: bold;
 }
 
+.sign-in{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .forgot{
   font-size: 12px;
+  cursor: pointer;
 }
 .email-input, .password-input{
   border: none;
   width: 100%;
+  outline: none;
+
 }
 hr{
   width: 95%;
+  color: rgb(211, 210, 210);
 }
 
 .name, .password{
@@ -39,11 +50,14 @@ hr{
 .sign-in-header{
   color: rgb(1, 117, 117);
   font-size: 1.3rem;
+  font-family: 'Raleway';
 }
 
 .sign-in-button{
   width: 65%;
+  font-family: 'Raleway';
   color: lightgrey;
+  border-radius: 3px;
   font-size: 1rem;
   background: rgb(180, 180, 180);
   padding: 8px 0 8px 0;
@@ -62,10 +76,4 @@ hr{
 .sign-up-btn{
   cursor: pointer;
   color: rgb(56, 55, 55);
-}
-.header{
-  font-size: 16px;
-  background: #E0F0E3;
-  border: 2px solid red;
-  color: #78c885;
 }
