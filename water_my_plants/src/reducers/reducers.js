@@ -3,3 +3,16 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAILURE
 } from "../actions/types";
+
+const initialState = {
+  plantData: [],
+  loggingIn: false,
+  error: null
+};
+
+export const reducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    default:
+      return state;
+  }
+};
