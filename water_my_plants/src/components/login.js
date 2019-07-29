@@ -25,6 +25,7 @@ export default function Login() {
 
   return (
     <div className='login-card'>
+      <h2 className='header'>Water my Plants</h2>
       <form onSubmit={submitHandler}>
         <legend className='sign-in-header'>Sign in</legend>
         <br />
