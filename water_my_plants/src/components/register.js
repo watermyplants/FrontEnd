@@ -2,6 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 
+const StyledFieldset =styled.fieldset`
+    border: none;
+`
+
 const StyledInputDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -42,7 +46,7 @@ function Register() {
     return (<div>
         <form>
             <h2>Sign up</h2>
-            <feildset>
+            <StyledFieldset>
                 <StyledInputDiv>
                     <StyledLabel>Name</StyledLabel>
                     <StyledInput type='text' ></StyledInput>
@@ -64,11 +68,15 @@ function Register() {
                     <StyledInput type='phone number' ></StyledInput>
                 </StyledInputDiv>
                 <StyledButton>Sign Up</StyledButton>
-            </feildset>
+
+                <RegisterFooterDiv>
+        <input type='checkbox'>I accept terms of service available here</input>
+        </RegisterFooterDiv> 
+            </StyledFieldset>
+
+           
         </form>
-        <RegisterFooterDiv>
         
-        </RegisterFooterDiv>
     </div>)
 }
 
