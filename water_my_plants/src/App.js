@@ -14,7 +14,8 @@ function App() {
       <h1>Water My Plants</h1>
       <Route exact path="/login" component={Login} />
       <Route path="/register" component={Register} />
-      <PrivateRoute exact path="/plantList" component={PlantList} />
+      {/* <PrivateRoute exact path="/plantList" component={PlantList} /> */}
+      <Route path="/plantlist" component={PlantList} />
     </div>
   );
 }
