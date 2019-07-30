@@ -6,7 +6,7 @@ const LoginCard = styled.div`
   background: white;
   border-radius: 3px;
   width: 21rem;
-  height: 400px;
+  height: 430px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,14 +17,17 @@ const LoginCard = styled.div`
 `;
 
 const H1SignIn= styled.div`
-  color: rgb(1, 117, 117);
-  font-size: 1.3rem;
+  color: rgb(11, 139, 139);
+  font-size: 1.2rem;
+  font-weight: bolder;
   font-family: 'Raleway';
   margin-top: 20px;
 `;
 
 const EmailAndPassword = styled.div`
   text-align: left;
+  margin-bottom: 20px;
+  margin-top: 20px;
 `;
 
 
@@ -38,16 +41,19 @@ const StyledSignInButton = styled.button`
   padding: 8px 0 8px 0;
   border: none;
   cursor: pointer;
+  margin-bottom: 20px;
 `;
 
 const BottomSignIn = styled.div`
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 `;
 
 const SignUp = styled.h5`
   cursor: pointer;
   color: rgb(56, 55, 55);
+  margin: 0 0 0 5px;
 `;
 
 
@@ -60,7 +66,6 @@ const StyledInput = styled.input`
 border: none;
 width: 100%;
 outline: none;
-
 `;
 
 const StyledHr = styled.hr`
@@ -70,8 +75,8 @@ color: rgb(211, 210, 210);
 `;
 
 const Need = styled.p`
-font-size: 13px;
-margin: 22px 10px 0 0;
+font-size: 14px;
+margin: 0 0 0 0;
 
 `;
 

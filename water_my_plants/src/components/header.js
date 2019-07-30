@@ -2,9 +2,9 @@ import React from "react";
 import styled from 'styled-components';
 
 const H3 = styled.h3`
-    font-size: 21px;
+    font-size: 22px;
     font-family: 'Raleway';
-    font-weight: bold;
+    font-weight: bolder;
     color: #78c885;
     width: 24.8rem;
 `;
