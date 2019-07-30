@@ -1,19 +1,19 @@
-import React, {useState} from 'react';
-import NewPlant from './NewPlant';
-import EditPlant from './EditPlant';
+import React, { useState } from "react";
+import NewPlant from "./NewPlant";
+import EditPlant from "./EditPlant";
 
-const PlantList = () => {
+export const PlantList = () => {
+  //************************* Sets up state for PlantList *************************
+  const [plants, setPlants] = useState([]);
 
-    //************************* Sets up state for PlantList *************************
-    const [plants, setPlants] = useState([]);
+  //************************* Submits a plant to state *************************
+  // const submitMember = member => setMembers([...members, member]);
+  const submitPlant = plant => setPlants([...plants, plant]);
 
-    //************************* Submits a plant to state *************************
-    // const submitMember = member => setMembers([...members, member]);
-    const submitPlant = plant => setPlants([...plants, plant]);
-
-    //************************* Logic for updating a new plant *************************
-    const update = newPlant =>
-    setPlants([...plants.map(plant => {
+  //************************* Logic for updating a new plant *************************
+  const update = newPlant =>
+    setPlants([
+      ...plants.map(plant => {
         if (plant.id === newPlant.id) {
           return newPlant;
         }
@@ -21,17 +21,14 @@ const PlantList = () => {
       })
     ]);
 
-    return (
-        <div className="App">
-            <NewPlant add={submitPlant} />
+  return (
+    <div className="App">
+      <NewPlant add={submitPlant} />
 
-            {/* MAPS OVER PLANTS AND CREATES A CARD */}
-            {plants.map((plant, i) => (
-                <EditPlant plant={plant} key={i} update={update} />
-            ))}
-
-        </div>
-    );
-}
-
-export default PlantList;
+      {/* MAPS OVER PLANTS AND CREATES A CARD */}
+      {plants.map((plant, i) => (
+        <EditPlant plant={plant} key={i} update={update} />
+      ))}
+    </div>
+  );
+};
