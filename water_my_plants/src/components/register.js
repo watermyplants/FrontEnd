@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+
 import styled from "styled-components";
 
 const StyledFieldset = styled.fieldset`
@@ -144,3 +146,12 @@ export const Register = () => {
     </div>
   );
 };
+
+const mapStateToProps = state => ({
+  state
+});
+
+export default connect(
+  mapStateToProps,
+  { Register }
+)(Register);
