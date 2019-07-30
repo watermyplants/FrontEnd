@@ -1,0 +1,141 @@
+import React, {useState} from 'react'
+import styled from 'styled-components'
+
+
+const StyledFieldset =styled.fieldset`
+    border-radius: 4px;
+    width: 26%;
+    margin: 0 auto;
+
+`
+const StyledH2 =styled.h2`
+    color: #198974
+    font-size: 18px;
+`
+
+const StyledP = styled.p`
+    font-size: 12px;
+    
+`
+
+const StyledInputDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+     margin: 0 auto;
+    padding-left: 13%;
+    padding-right: 5%;
+    font-style: source sans pro;
+`
+const StyledInput = styled.input`
+    border: none;
+    border-bottom: 1px solid grey;
+    margin-bottom: 5%;
+    height: 30px;
+    width: 88%;
+`
+
+const StyledLabel = styled.label`
+    margin-bottom: 1%;
+    text-align: left;
+`
+
+const StyledButton = styled.button`
+    width: 200px;
+    height: 30px;
+    background-color: #D0D0D0;
+    color: #F3F3F3;
+    border-radius: 2px;
+    margin-bottom: 2%;
+    font-size: 15px;
+`
+
+const RegisterFooterDiv = styled.div`
+    border-top: 1px solid #D0D0D0;
+    // width: 30%;
+    margin: 0 auto;
+    margin-top; 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+// const styledCheckboxInput = styled.input`
+//     // border: 1px solid #78C885;
+// `
+
+function Register() {
+
+    const [newUser, setNewUser] = useState({name: '', email: '', password: '', connfirmedPassword: '', phoneNumber: ''})
+
+    function handleSubmit(event){
+        event.preventDefault()
+
+    }
+
+    function handleChange(event) {
+        const updatedUser = {...newUser, [event.target.name]:event.target.value}
+        console.log('user',event.target.name, event.target.value, updatedUser)
+        setNewUser(updatedUser)
+    }
+
+    return (<div>
+        <form onSubmit={event => handleSubmit(event)}>
+            <StyledFieldset>
+                <StyledH2>Sign up</StyledH2>
+                <StyledInputDiv>
+                    <StyledLabel>Name</StyledLabel>
+                    <StyledInput type='text' 
+                    name= "name"
+                    value={newUser.name}
+                    onChange ={handleChange}
+                    ></StyledInput>
+                </StyledInputDiv>
+                <StyledInputDiv>
+                <StyledLabel>Email Address</StyledLabel>
+                    <StyledInput type='email'
+                    name='email'
+                    value={newUser.email}
+                    onChange ={handleChange}
+                     ></StyledInput>
+                </StyledInputDiv>
+                <StyledInputDiv>
+                <StyledLabel>Password</StyledLabel>
+                    <StyledInput type='password' 
+                    name = "password"
+                    value = {newUser.password}
+                    onChange ={handleChange}
+                    ></StyledInput>
+                </StyledInputDiv>
+                <StyledInputDiv>
+                <StyledLabel>Confirm Password</StyledLabel>
+                    <StyledInput type='password' 
+                    name='confirmedPassword'
+                    value= {newUser.confirmedPassword}
+                    onChange = {handleChange}
+                    ></StyledInput>
+                </StyledInputDiv>
+                <StyledInputDiv>
+                <StyledLabel>Phone number</StyledLabel>
+                    <StyledInput type='phone number' 
+                    name = 'phoneNumber'
+                    value ={newUser.phoneNumber}
+                    onChange ={handleChange}
+                    ></StyledInput>
+                </StyledInputDiv>
+                <StyledButton>Sign Up</StyledButton>
+
+                <RegisterFooterDiv>
+        <input type='checkbox'></input>
+            <StyledP>I accept terms of service available here.</StyledP>
+       
+        </RegisterFooterDiv> 
+        <div>
+            <StyledP>Got accout? <span>Sign in</span></StyledP>
+        </div>
+            </StyledFieldset>
+
+        </form>
+        
+    </div>)
+}
+
+export default Register
