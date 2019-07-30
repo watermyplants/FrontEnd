@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Header from './header';
-import styled from 'styled-components';
+import Header from "./header";
+import styled from "styled-components";
 
 const LoginCard = styled.div`
   background: white;
@@ -16,11 +16,11 @@ const LoginCard = styled.div`
   font-weight: bold;
 `;
 
-const H1SignIn= styled.div`
+const H1SignIn = styled.div`
   color: rgb(11, 139, 139);
   font-size: 1.2rem;
   font-weight: bolder;
-  font-family: 'Raleway';
+  font-family: "Raleway";
   margin-top: 20px;
 `;
 
@@ -30,10 +30,9 @@ const EmailAndPassword = styled.div`
   margin-top: 20px;
 `;
 
-
 const StyledSignInButton = styled.button`
   width: 65%;
-  font-family: 'Raleway';
+  font-family: "Raleway";
   color: lightgrey;
   border-radius: 3px;
   font-size: 1rem;
@@ -56,32 +55,28 @@ const SignUp = styled.h5`
   margin: 0 0 0 5px;
 `;
 
-
 const Forgot = styled.p`
-font-size: 12px;
-cursor: pointer;
+  font-size: 12px;
+  cursor: pointer;
 `;
 
 const StyledInput = styled.input`
-border: none;
-width: 100%;
-outline: none;
+  border: none;
+  width: 100%;
+  outline: none;
 `;
 
 const StyledHr = styled.hr`
-width: 95%;
-color: rgb(211, 210, 210);
-
+  width: 95%;
+  color: rgb(211, 210, 210);
 `;
 
 const Need = styled.p`
-font-size: 14px;
-margin: 0 0 0 0;
-
+  font-size: 14px;
+  margin: 0 0 0 0;
 `;
 
-
-export default function Login() {
+export const Login = () => {
   const [signIn, setSignIn] = useState({
     email: "",
     password: ""
@@ -99,49 +94,47 @@ export default function Login() {
   }
 
   return (
-    <LoginCard >
-        <Header />
-        <form onSubmit={submitHandler}>
-          <H1SignIn>Sign in</H1SignIn>
-          <br />
-          <EmailAndPassword>
-            <label>
-              Email Address
-              <br />
-              <StyledInput
-                type="text"
-                name="email"
-                value={signIn.email}
-                placeholder=""
-                onChange={changeHandler}
-              />
-              <StyledHr />
-            </label>
-          </EmailAndPassword>
-          <EmailAndPassword>
-            <label>
-              Password
-              <br />
-              <StyledInput
-                type="password"
-                name="password"
-                value={signIn.password}
-                placeholder=""
-                onChange={changeHandler}
-              />
-              <StyledHr/>
-            </label>
-            <Forgot>Forgot your password?</Forgot>
+    <LoginCard>
+      <Header />
+      <form onSubmit={submitHandler}>
+        <H1SignIn>Sign in</H1SignIn>
+        <br />
+        <EmailAndPassword>
+          <label>
+            Email Address
             <br />
-          </EmailAndPassword>
-          <StyledSignInButton type="submit">
-            Sign In
-          </StyledSignInButton>
-        </form>
-        <BottomSignIn>
-          <Need>Need an account?</Need>
-          <SignUp>Sign up</SignUp>
-        </BottomSignIn>
+            <StyledInput
+              type="text"
+              name="email"
+              value={signIn.email}
+              placeholder=""
+              onChange={changeHandler}
+            />
+            <StyledHr />
+          </label>
+        </EmailAndPassword>
+        <EmailAndPassword>
+          <label>
+            Password
+            <br />
+            <StyledInput
+              type="password"
+              name="password"
+              value={signIn.password}
+              placeholder=""
+              onChange={changeHandler}
+            />
+            <StyledHr />
+          </label>
+          <Forgot>Forgot your password?</Forgot>
+          <br />
+        </EmailAndPassword>
+        <StyledSignInButton type="submit">Sign In</StyledSignInButton>
+      </form>
+      <BottomSignIn>
+        <Need>Need an account?</Need>
+        <SignUp>Sign up</SignUp>
+      </BottomSignIn>
     </LoginCard>
   );
-}
+};
