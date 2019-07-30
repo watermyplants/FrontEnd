@@ -1,12 +1,12 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
-import Register from './components/register.js'
+import Register from './components/register'
 
 import { Login } from "./components/login";
 import { Register } from "./components/register";
 import { PrivateRoute } from "./components/PrivateRoute";
-
+ 
 function App() {
   return (
     <div className="App">
