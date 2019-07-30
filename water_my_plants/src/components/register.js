@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { registerUser } from "../actions/actions";
 
 import styled from "styled-components";
 
@@ -61,17 +62,22 @@ const RegisterFooterDiv = styled.div`
 //     // border: 1px solid #78C885;
 // `
 
-export const Register = () => {
+const Register = props => {
+  console.log("props in register", props);
   const [newUser, setNewUser] = useState({
     name: "",
     email: "",
     password: "",
-    connfirmedPassword: "",
+    confirmedPassword: "",
     phoneNumber: ""
   });
 
   function handleSubmit(event) {
+    console.log("NewUser in handle", newUser);
     event.preventDefault();
+    //
+    // setNewUser(newUser);
+    props.registerUser(newUser);
   }
 
   function handleChange(event) {
@@ -147,11 +153,16 @@ export const Register = () => {
   );
 };
 
-const mapStateToProps = state => ({
-  state
+const mapStateToProps = ({ token, loggingIn, error }) => ({
+  // console.log("mapStateToProps", token),
+  token,
+  loggingIn,
+  error
 });
+
+// const mapStateToProps = state => console.log(state);
 
 export default connect(
   mapStateToProps,
-  { Register }
+  { registerUser }
 )(Register);

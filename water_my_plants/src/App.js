@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import "./App.css";
 
 import { Login } from "./components/login";
-import { Register } from "./components/register";
+import Register from "./components/Register";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { PlantList } from "./components/PlantList";
 import { useToken } from "./hooks/useToken";

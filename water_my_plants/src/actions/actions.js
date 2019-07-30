@@ -9,14 +9,15 @@ import {
 
 import Axios from "axios";
 
-export const register = creds => dispatch => {
+export const registerUser = creds => dispatch => {
+  console.log("registerUser creds", creds);
   dispatch({ type: REGISTER_START });
   return Axios.post("https://watermp.herokuapp.com/register", creds)
     .then(res => {
       console.log("RES inside actions register", res);
       dispatch({ type: REGISTER_SUCCESS });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err.response.data));
 };
 
 export const login = creds => dispatch => {
