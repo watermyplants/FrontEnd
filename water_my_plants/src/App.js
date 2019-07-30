@@ -1,9 +1,10 @@
 import React from "react";
-import Login from './components/login';
+
 import { Route } from "react-router-dom";
 
 import "./App.css";
 import Register from './components/register'
+import Login from './components/login';
 
 import { Login } from "./components/login";
 import { Register } from "./components/register";
