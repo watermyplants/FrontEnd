@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 //************************* Form to add a new plant *************************
 
 const NewPlant = props => {
-    // const [input, setInput] = useState({ name: "", email: "", role: "", id: null });
     const [input, setInput] = useState({ name: "", type: "", location: "", id: null });
 
 //************************* Form Handlers *************************
