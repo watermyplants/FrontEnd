@@ -65,11 +65,11 @@ const RegisterFooterDiv = styled.div`
 const Register = props => {
   console.log("props in register", props);
   const [newUser, setNewUser] = useState({
-    name: "",
-    email: "",
+    username: "",
+    // email: "",
     password: "",
-    confirmedPassword: "",
-    phoneNumber: ""
+    // confirmedPassword: "",
+    phone: ""
   });
 
   function handleSubmit(event) {
@@ -95,12 +95,12 @@ const Register = props => {
             <StyledLabel>Name</StyledLabel>
             <StyledInput
               type="text"
-              name="name"
-              value={newUser.name}
+              name="username"
+              value={newUser.username}
               onChange={handleChange}
             />
           </StyledInputDiv>
-          <StyledInputDiv>
+          {/* <StyledInputDiv>
             <StyledLabel>Email Address</StyledLabel>
             <StyledInput
               type="email"
@@ -108,7 +108,7 @@ const Register = props => {
               value={newUser.email}
               onChange={handleChange}
             />
-          </StyledInputDiv>
+          </StyledInputDiv> */}
           <StyledInputDiv>
             <StyledLabel>Password</StyledLabel>
             <StyledInput
@@ -118,7 +118,7 @@ const Register = props => {
               onChange={handleChange}
             />
           </StyledInputDiv>
-          <StyledInputDiv>
+          {/* <StyledInputDiv>
             <StyledLabel>Confirm Password</StyledLabel>
             <StyledInput
               type="password"
@@ -126,13 +126,13 @@ const Register = props => {
               value={newUser.confirmedPassword}
               onChange={handleChange}
             />
-          </StyledInputDiv>
+          </StyledInputDiv> */}
           <StyledInputDiv>
             <StyledLabel>Phone number</StyledLabel>
             <StyledInput
               type="phone number"
-              name="phoneNumber"
-              value={newUser.phoneNumber}
+              name="phone"
+              value={newUser.phone}
               onChange={handleChange}
             />
           </StyledInputDiv>
