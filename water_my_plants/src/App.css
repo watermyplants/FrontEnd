@@ -6,7 +6,9 @@
 }
 
 .clicked{
-  background-color: #F9FF00
+  background-color: #F9FF00;
+  border-radius: 50%;
+  outline: none;
 }
 
 

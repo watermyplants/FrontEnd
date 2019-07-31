@@ -7,7 +7,7 @@ import Register from "./components/register";
 
 import { PrivateRoute } from "./components/PrivateRoute";
 import { PlantList } from "./components/PlantList";
-import { Weekdays } from "./components/Weekdays.js";
+import Weekdays from "./components/Weekdays.js";
 import { useToken } from "./hooks/useToken";
 
 function App() {
