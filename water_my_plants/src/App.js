@@ -9,13 +9,14 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import { PlantList } from "./components/PlantList";
 import { Weekdays } from "./components/Weekdays.js";
 import { useToken } from "./hooks/useToken";
+import Plant from "./components/Plant";
 
 function App() {
   const [, , setToken] = useToken("token");
   return (
     <div className="App">
       <h1>Water My Plants</h1>
-      {/* <Route exact path="/login" component={Login} /> */}
+      <Route exact path="/login" component={Login} />
       <Route
         exact
         path="/login"
@@ -25,6 +26,8 @@ function App() {
       {/* <PrivateRoute exact path="/plantList" component={PlantList} /> */}
 
       <Route exact path="/plantList" component={PlantList} />
+      
+      <Plant />
     </div>
   );
 }

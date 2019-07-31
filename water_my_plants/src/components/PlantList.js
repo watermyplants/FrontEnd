@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import NewPlant from "./NewPlant";
 import EditPlant from "./EditPlant";
 
-export const PlantList = () => {
+export const PlantList = (props) => {
   //************************* Sets up state for PlantList *************************
   const [plants, setPlants] = useState([]);
-
+  
   //************************* Submits a plant to state *************************
   const submitPlant = plant => setPlants([...plants, plant]);
 
@@ -31,7 +31,8 @@ export const PlantList = () => {
             <EditPlant plant={plant} key={i} update={update} />
           </div>
         ))}
-  
     </div>
   );
 };
+
+// export default PlantList;

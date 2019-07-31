@@ -1,18 +1,19 @@
 import React, { useState } from "react";
+import EditPlant from './EditPlant';
 
 //************************* Delete Plant *************************
 
-const DeletePlant = (props) => {
-
-    const deletePlant = id => {
+const DeletePlant = () => {
     
-    }
+    const handleUpdate = e => {
+        e.preventDefault();
+        
+    };
 
     return (
-        <div className="delete-plant">
-            <button onClick={deletePlant}>Delete</button>
+        <div>
         </div>
-    );
+    )
 };
 
 export default DeletePlant;

@@ -12,6 +12,9 @@ code {
     monospace;
 }
 
-.new-plant {
-  border: 1px solid red;
+.hidden {
+   display:none;
+}
+.show{
+   display:block;
 }

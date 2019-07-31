@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 
 const NewPlant = props => {
     const [input, setInput] = useState({ name: "", type: "", location: "", id: null });
-
+    console.log(props.add);
 //************************* Form Handlers *************************
 
 const inputHandler = event => {
