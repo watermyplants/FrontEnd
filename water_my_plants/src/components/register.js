@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { registerUser } from "../actions/actions";
+import { postRegister } from "../actions/actions";
 
 import styled from "styled-components";
 
@@ -77,7 +77,7 @@ const Register = props => {
     event.preventDefault();
     //
     // setNewUser(newUser);
-    props.registerUser(newUser).then(() => props.history.push("/login"));
+    props.postRegister(newUser).then(() => props.history.push("/login"));
   }
 
   function handleChange(event) {
@@ -165,5 +165,5 @@ const mapStateToProps = ({ token, loggingIn, error }) => ({
 
 export default connect(
   mapStateToProps,
-  { registerUser }
+  { postRegister }
 )(Register);

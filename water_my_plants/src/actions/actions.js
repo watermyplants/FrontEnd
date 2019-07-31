@@ -11,7 +11,7 @@ import {
 
 import Axios from "axios";
 
-export const registerUser = creds => dispatch => {
+export const postRegister = creds => dispatch => {
   console.log("registerUser creds", creds);
   dispatch({ type: REGISTER_START });
   return (
@@ -25,7 +25,7 @@ export const registerUser = creds => dispatch => {
   );
 };
 
-export const login = creds => dispatch => {
+export const postLogin = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return (
     Axios.post("https://watermp.herokuapp.com/login", creds)
