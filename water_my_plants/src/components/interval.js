@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import Toggle from './toggle';
+
 import styled from 'styled-components'
 
 export default function Interval() {
   const [count, setCount] = useState(0);
+  const [value, setValue ] = useState(false);
 
   const StyledH4 = styled.h4`
   color: teal;
@@ -83,6 +86,10 @@ export default function Interval() {
           />
         </StyledLabel>
       </form>
+      <Toggle 
+      isOn={value}
+      handleToggle={() => setValue(!value)}
+      />
     </StyledIntervalContainer>
 
   );

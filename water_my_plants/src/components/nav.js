@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Toggle from './toggle';
 import styled from 'styled-components';
-import img from './photo/testimonial1.jpg';
+import img from './photos/testimonial1.jpg';
 import logo from './photos/logo.png';
 
 
@@ -60,6 +61,9 @@ const Nav = props => {
     search: ""
   });
 
+  const [value, setValue ] = useState(false);
+
+
   function submitHandler(event) {
     event.preventDefault();
     console.log("navs", setNavsSearch);
@@ -93,6 +97,10 @@ const Nav = props => {
       <StyledButton>Profile</StyledButton>
       <StyledImg src={img} />
       </StyledRight>
+      <Toggle 
+      isOn={value}
+      handleToggle={() => setValue(!value)}
+      />
     </StyledHolder>
   );
 };
