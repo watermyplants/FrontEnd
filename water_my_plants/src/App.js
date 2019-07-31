@@ -7,11 +7,8 @@ import Register from "./components/register";
 
 import { PrivateRoute } from "./components/PrivateRoute";
 import { PlantList } from "./components/PlantList";
-<<<<<<< HEAD
-=======
-import { Weekdays } from "./components/Weekdays.js";
+import Weekdays from "./components/Weekdays.js";
 import { useToken } from "./hooks/useToken";
->>>>>>> c021a45671ba276a0f34cd101323e9211d204a00
 
 function App() {
   const [, , setToken] = useToken("token");
