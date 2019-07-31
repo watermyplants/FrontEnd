@@ -21,12 +21,14 @@ const HeaderSignIn = styled.header`
   justify-content: center;
   align-items: center;
   background: #E0F0E3;
+  width: 120%;
 `;
 
 const Wat = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items:center;
 `;
 
 
