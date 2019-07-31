@@ -93,7 +93,7 @@ const Login = props => {
   }
 
   function changeHandler(event) {
-    console.log(signIn);
+    // console.log(signIn);
     setSignIn({ ...signIn, [event.target.name]: event.target.value });
   }
 
@@ -156,3 +156,27 @@ export default connect(
   mapStateToProps,
   { login }
 )(Login);
+
+// const mapStateToProps = ({ plantData, isFetching, error }) => ({
+//     // console.log("mapStateToProps", plantData),
+//     plantData,
+//     isFetching,
+//     error
+// });
+
+// export default connect(
+//     mapStateToProps,
+//     { getPlants }
+// )(PlantList);
+
+// const mapStateToProps = ({ weekday, isFetching, error }) => ({
+//     // console.log("mapStateToProps", plantData),
+//     plantData,
+//     isFetching,
+//     error
+// });
+
+// export default connect(
+//     mapStateToProps,
+//     { getWeekday}
+// )(Weekdays);
