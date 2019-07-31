@@ -13,16 +13,23 @@ export const useWeekdayClick =() => {
         }else{
             day.classList.remove('clicked')
         }
-        // const monday =document.querySelector('.Monday')
-        // if(someValue === true){
-        //     monday.classList.add('clicked')
-        // }else{
-        //     monday.classList.remove('clicked')
-        // }
     }, [someValue])
 
     return [someValue, setSomeValue]
 }
 
-// export default useWeekdayClick
+// export const useMondayClick =() => {
 
+//     const [someValue, setSomeValue] =useLocalStorage('')
+
+//     useEffect(() => {
+//         const day = document.querySelector('.Monday')
+//         if(someValue === true){
+//             day.classList.add('clicked')
+//         }else{
+//             day.classList.remove('clicked')
+//         }
+//     }, [someValue])
+
+//     return [someValue, setSomeValue]
+// }

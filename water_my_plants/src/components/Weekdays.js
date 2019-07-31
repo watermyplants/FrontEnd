@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import styled from "styled-components"
 
 import {useWeekdayClick} from '../hooks/useWeekdayClick.js'
+// import {useMondayClick} from '../hooks/useWeekdayClick.js'
 
 
 const StyledWeekdays = styled.div`
@@ -44,10 +45,14 @@ export const Weekdays = (props) => {
         setClickedWeekday(!clickedWeekday);
     };
 
-    // useEffect(() => {
-    //     const day = document.querySelector('button')
-    //     day.classList.add('clicked')
-    // },[weekdays])
+    // const [clickedMonday, setClickedMonday] = useMondayClick(false);
+    // const ClickedMonday = e => {
+    //     e.preventDefault();
+    //     console.log('clicked a monday',)
+    //     setClickedMonday(!clickedMonday);
+    // };
+
+   
 
     return (
         <StyledWeekdays>

@@ -5,7 +5,7 @@ import { Login } from "./components/login";
 import { Register } from "./components/register";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { PlantList } from "./components/PlantList";
-import {Weekdays} from './components/Weekdays.js'
+
 function App() {
   return (
     <div className="App">
