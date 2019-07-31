@@ -88,7 +88,8 @@ const Register = props => {
 
   return (
     <div>
-      <form onSubmit={event => handleSubmit(event)}>
+      {/* <form onSubmit={event => handleSubmit(event)}> */}
+      <form onSubmit={handleSubmit}>
         <StyledFieldset>
           <StyledH2>Sign up</StyledH2>
           <StyledInputDiv>
