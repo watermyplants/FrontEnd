@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DeletePlant from "./DeletePlant";
 
 //************************* Edit Plant *************************
 
@@ -8,7 +9,7 @@ const EditPlant = props => {
     const { name, type, location, id } = props.plant;
     const [input, setInput] = useState({ name: name, type: type, location: location, id: id });
     const [editing, setEditing] = useState(false);
-
+    
     //************************* Form Handlers *************************
     const handleEdit = e => {
         setEditing(!editing);
@@ -58,6 +59,7 @@ const EditPlant = props => {
         <h3>Location</h3>
         <p>{location}</p>
         <button onClick={handleEdit}>Edit</button>
+        <DeletePlant />
         </div>
     );
 };
