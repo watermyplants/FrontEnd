@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { registerUser } from "../actions/actions";
+
 import styled from "styled-components";
+
 
 const StyledFieldset = styled.fieldset`
   border-radius: 4px;
@@ -59,17 +63,22 @@ const RegisterFooterDiv = styled.div`
 //     // border: 1px solid #78C885;
 // `
 
-export const Register = () => {
+const Register = props => {
+  console.log("props in register", props);
   const [newUser, setNewUser] = useState({
-    name: "",
-    email: "",
+    username: "",
+    // email: "",
     password: "",
-    connfirmedPassword: "",
-    phoneNumber: ""
+    // confirmedPassword: "",
+    phone: ""
   });
 
   function handleSubmit(event) {
+    console.log("NewUser in handle", newUser);
     event.preventDefault();
+    //
+    // setNewUser(newUser);
+    props.registerUser(newUser);
   }
 
   function handleChange(event) {
@@ -87,12 +96,12 @@ export const Register = () => {
             <StyledLabel>Name</StyledLabel>
             <StyledInput
               type="text"
-              name="name"
-              value={newUser.name}
+              name="username"
+              value={newUser.username}
               onChange={handleChange}
             />
           </StyledInputDiv>
-          <StyledInputDiv>
+          {/* <StyledInputDiv>
             <StyledLabel>Email Address</StyledLabel>
             <StyledInput
               type="email"
@@ -100,7 +109,7 @@ export const Register = () => {
               value={newUser.email}
               onChange={handleChange}
             />
-          </StyledInputDiv>
+          </StyledInputDiv> */}
           <StyledInputDiv>
             <StyledLabel>Password</StyledLabel>
             <StyledInput
@@ -110,7 +119,7 @@ export const Register = () => {
               onChange={handleChange}
             />
           </StyledInputDiv>
-          <StyledInputDiv>
+          {/* <StyledInputDiv>
             <StyledLabel>Confirm Password</StyledLabel>
             <StyledInput
               type="password"
@@ -118,13 +127,13 @@ export const Register = () => {
               value={newUser.confirmedPassword}
               onChange={handleChange}
             />
-          </StyledInputDiv>
+          </StyledInputDiv> */}
           <StyledInputDiv>
             <StyledLabel>Phone number</StyledLabel>
             <StyledInput
               type="phone number"
-              name="phoneNumber"
-              value={newUser.phoneNumber}
+              name="phone"
+              value={newUser.phone}
               onChange={handleChange}
             />
           </StyledInputDiv>
@@ -144,3 +153,17 @@ export const Register = () => {
     </div>
   );
 };
+
+const mapStateToProps = ({ token, loggingIn, error }) => ({
+  // console.log("mapStateToProps", token),
+  token,
+  loggingIn,
+  error
+});
+
+// const mapStateToProps = state => console.log(state);
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(Register);

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { login } from "../actions/actions";
 import Header from "./header";
 import styled from "styled-components";
 
@@ -76,16 +78,18 @@ const Need = styled.p`
   margin: 0 0 0 0;
 `;
 
-export const Login = () => {
+const Login = props => {
   const [signIn, setSignIn] = useState({
-    email: "",
+    // email: "",
+    username: "",
     password: ""
   });
 
   function submitHandler(event) {
     event.preventDefault();
-    console.log("sign in", signIn);
-    setSignIn(signIn);
+    console.log("sign in in handle", signIn);
+    // setSignIn(signIn);
+    props.login(signIn);
   }
 
   function changeHandler(event) {
@@ -105,7 +109,7 @@ export const Login = () => {
             <br />
             <StyledInput
               type="text"
-              name="email"
+              name="username"
               value={signIn.email}
               placeholder=""
               onChange={changeHandler}
@@ -138,3 +142,17 @@ export const Login = () => {
     </LoginCard>
   );
 };
+
+const mapStateToProps = ({ token, loggingIn, error }) => ({
+  // console.log("mapStateToProps", token),
+  token,
+  loggingIn,
+  error
+});
+
+// const mapStateToProps = state => console.log(state);
+
+export default connect(
+  mapStateToProps,
+  { login }
+)(Login);
