@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { login } from "../actions/actions";
+import { postLogin } from "../actions/actions";
 import Header from "./header";
 import styled from "styled-components";
 
@@ -89,11 +89,11 @@ const Login = props => {
     event.preventDefault();
     console.log("sign in in handle", signIn);
     // setSignIn(signIn);
-    props.login(signIn).then(() => props.history.push("/plantlist"));
+    props.postLogin(signIn).then(() => props.history.push("/plantlist"));
   }
 
   function changeHandler(event) {
-    console.log(signIn);
+    // console.log(signIn);
     setSignIn({ ...signIn, [event.target.name]: event.target.value });
   }
 
@@ -154,5 +154,29 @@ const mapStateToProps = ({ token, loggingIn, error }) => ({
 
 export default connect(
   mapStateToProps,
-  { login }
+  { postLogin }
 )(Login);
+
+// const mapStateToProps = ({ plantData, isFetching, error }) => ({
+//     // console.log("mapStateToProps", plantData),
+//     plantData,
+//     isFetching,
+//     error
+// });
+
+// export default connect(
+//     mapStateToProps,
+//     { getPlants }
+// )(PlantList);
+
+// const mapStateToProps = ({ weekday, isFetching, error }) => ({
+//     // console.log("mapStateToProps", plantData),
+//     plantData,
+//     isFetching,
+//     error
+// });
+
+// export default connect(
+//     mapStateToProps,
+//     { getWeekday}
+// )(Weekdays);

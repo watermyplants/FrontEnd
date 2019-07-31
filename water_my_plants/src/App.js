@@ -14,8 +14,6 @@ function App() {
   const [, , setToken] = useToken("token");
   return (
     <div className="App">
-      <h1>Water My Plants</h1>
-      {/* <Route exact path="/login" component={Login} /> */}
       <Route
         exact
         path="/login"
@@ -23,8 +21,6 @@ function App() {
       />
       <Route path="/register" component={Register} />
       <PrivateRoute exact path="/plantList" component={PlantList} />
-
-      {/* <Route exact path="/plantList" component={PlantList} /> */}
     </div>
   );
 }

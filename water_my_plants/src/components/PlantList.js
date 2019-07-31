@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { getPlants } from "../actions/actions";
 import NewPlant from "./NewPlant";
 import EditPlant from "./EditPlant";
 
-export const PlantList = () => {
+export const PlantList = props => {
+  console.log("props in Plantlist", props);
   //************************* Sets up state for PlantList *************************
   const [plants, setPlants] = useState([]);
 
@@ -32,3 +35,18 @@ export const PlantList = () => {
     </div>
   );
 };
+
+// const mapStateToProps = ({ plantData, isFetching, error }) => ({
+//     console.log("mapStateToProps", plantData),
+//     plantData,
+//     isFetching,
+//     error
+// });
+const mapStateToProps = state => {
+  console.log("mapStateToProps Plantlist", state);
+};
+
+export default connect(
+  mapStateToProps,
+  { getPlants }
+)(PlantList);
