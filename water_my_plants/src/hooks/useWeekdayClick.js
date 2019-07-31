@@ -13,6 +13,12 @@ export const useWeekdayClick =() => {
         }else{
             day.classList.remove('clicked')
         }
+        // const monday =document.querySelector('.Monday')
+        // if(someValue === true){
+        //     monday.classList.add('clicked')
+        // }else{
+        //     monday.classList.remove('clicked')
+        // }
     }, [someValue])
 
     return [someValue, setSomeValue]

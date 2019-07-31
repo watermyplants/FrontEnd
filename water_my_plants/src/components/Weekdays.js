@@ -54,13 +54,13 @@ export const Weekdays = (props) => {
             <h2>Weekdays to water</h2>
             <div></div>
         <StyledWeekdayDiv>
-            <StyledWeekdayButton onClick={Clicked}>S</StyledWeekdayButton>
-            <StyledWeekdayButton onClick={Clicked}>M</StyledWeekdayButton>
-            <StyledWeekdayButton onClick={Clicked}>T</StyledWeekdayButton>
-            <StyledWeekdayButton onClick={Clicked}>W</StyledWeekdayButton>
-            <StyledWeekdayButton onClick={Clicked}>T</StyledWeekdayButton>
-            <StyledWeekdayButton onClick={Clicked}>F</StyledWeekdayButton>
-            <StyledWeekdayButton onClick={Clicked}>S</StyledWeekdayButton>
+            <StyledWeekdayButton className='Sunday' onClick={Clicked}>S</StyledWeekdayButton>
+            <StyledWeekdayButton className='Monday' onClick={Clicked}>M</StyledWeekdayButton>
+            <StyledWeekdayButton className='Tuesday' onClick={Clicked}>T</StyledWeekdayButton>
+            <StyledWeekdayButton className='Wednesday' onClick={Clicked}>W</StyledWeekdayButton>
+            <StyledWeekdayButton className='Thurday' onClick={Clicked}>T</StyledWeekdayButton>
+            <StyledWeekdayButton className='Friday' onClick={Clicked}>F</StyledWeekdayButton>
+            <StyledWeekdayButton className='Saturday' onClick={Clicked}>S</StyledWeekdayButton>
         </StyledWeekdayDiv>
         </StyledWeekdays>
     )
