@@ -50,6 +50,7 @@ margin-right: 5px;
 const StyledInput =  styled.input`
  padding-top: 10px;
  padding-bottom: 10px;
+ border-radius: 5px;
 `;
 
 
