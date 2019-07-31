@@ -25,6 +25,7 @@ export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return Axios.post("https://watermp.herokuapp.com/login", creds)
     .then(res => {
+      console.log("RES inside of actions login", res);
       localStorage.setItem("token", res.data.token);
       dispatch({ type: LOGIN_SUCCESS });
     })

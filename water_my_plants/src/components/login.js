@@ -87,7 +87,7 @@ const Login = props => {
 
   function submitHandler(event) {
     event.preventDefault();
-    console.log("sign in", signIn);
+    console.log("sign in in handle", signIn);
     // setSignIn(signIn);
     props.login(signIn);
   }
