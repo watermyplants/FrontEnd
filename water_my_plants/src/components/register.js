@@ -4,7 +4,6 @@ import { registerUser } from "../actions/actions";
 
 import styled from "styled-components";
 
-
 const StyledFieldset = styled.fieldset`
   border-radius: 4px;
   width: 26%;
@@ -78,7 +77,7 @@ const Register = props => {
     event.preventDefault();
     //
     // setNewUser(newUser);
-    props.registerUser(newUser);
+    props.registerUser(newUser).then(() => props.history.push("/login"));
   }
 
   function handleChange(event) {
@@ -89,7 +88,8 @@ const Register = props => {
 
   return (
     <div>
-      <form onSubmit={event => handleSubmit(event)}>
+      {/* <form onSubmit={event => handleSubmit(event)}> */}
+      <form onSubmit={handleSubmit}>
         <StyledFieldset>
           <StyledH2>Sign up</StyledH2>
           <StyledInputDiv>

@@ -11,7 +11,7 @@ export const useToken = param => {
       Axios.get(url, { headers: { Authorization: `${token}` } })
         .then(res => {
           console.log("RES useToken.js", res);
-          // setState(res.data);
+          setState(res.data);
         })
         .catch(err => {
           console.log(err);

@@ -22,9 +22,9 @@ function App() {
         render={props => <Login {...props} setToken={setToken} />}
       />
       <Route path="/register" component={Register} />
-      {/* <PrivateRoute exact path="/plantList" component={PlantList} /> */}
+      <PrivateRoute exact path="/plantList" component={PlantList} />
 
-      <Route exact path="/plantList" component={PlantList} />
+      {/* <Route exact path="/plantList" component={PlantList} /> */}
     </div>
   );
 }

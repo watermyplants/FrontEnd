@@ -12,8 +12,7 @@ import Axios from "axios";
 export const registerUser = creds => dispatch => {
   console.log("registerUser creds", creds);
   dispatch({ type: REGISTER_START });
-  //   return
-  Axios.post("https://watermp.herokuapp.com/register", creds)
+  return Axios.post("https://watermp.herokuapp.com/register", creds)
     .then(res => {
       console.log("RES inside actions register", res);
       dispatch({ type: REGISTER_SUCCESS });
