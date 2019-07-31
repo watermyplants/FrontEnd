@@ -41,7 +41,7 @@ export const postLogin = creds => dispatch => {
 
 export const getPlants = () => dispatch => {
   dispatch({ type: FETCH_PLANT_START });
-  return Axios.get("https://watermp.herokuapp.com/dashboard/:id/plants")
+  return Axios.get("https://watermp.herokuapp.com/dashboard/:id")
     .then(
       res => console.log("res in getPlants action", res)
       // dispatch({type: FETCH_PLANT_SUCCESS, payload: res.data})
@@ -52,7 +52,7 @@ export const getPlants = () => dispatch => {
 export const getWeekday = () => dispatch => {
   dispatch({ type: FETCH_PLANT_START });
   return Axios.post(
-    "'https://watermp.herokuapp.com/dashboard/:id/my_plant/:plant_id/add_schedule'"
+    "https://watermp.herokuapp.com/dashboard/:id/my_plant/:plant_id/add_schedule"
   ).then(res =>
     console("Res inside of getWeekday action", res)
       //dispatch ({type: FETCH_PLANT_SUCCESS, payload: res.data})
