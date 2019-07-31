@@ -89,7 +89,7 @@ const Login = props => {
     event.preventDefault();
     console.log("sign in in handle", signIn);
     // setSignIn(signIn);
-    props.login(signIn);
+    props.login(signIn).then(() => props.history.push("/plantlist"));
   }
 
   function changeHandler(event) {
