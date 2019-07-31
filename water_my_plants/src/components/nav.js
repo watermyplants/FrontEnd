@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
-import img from './testimonial1.jpg';
-import logo from './logo.png';
+import img from './photo/testimonial1.jpg';
+import logo from './photos/logo.png';
 
 
 const StyledHolder = styled.div `
