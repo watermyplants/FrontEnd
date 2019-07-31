@@ -4,6 +4,7 @@ import { registerUser } from "../actions/actions";
 
 import styled from "styled-components";
 
+
 const StyledFieldset = styled.fieldset`
   border-radius: 4px;
   width: 26%;
