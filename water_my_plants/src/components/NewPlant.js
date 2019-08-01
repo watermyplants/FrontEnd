@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+import Weekdays from './Weekdays.js'
+
 //************************* Form to add a new plant *************************
 
 const NewPlant = props => {
@@ -43,7 +45,7 @@ const submitHandler = event => {
             <input type="text" value={input.location} onChange={inputHandler} name="location" />
             </label>
         </div>
-
+        <Weekdays/>
         <button>Add Plant</button>
     </form>
   );

@@ -22,13 +22,13 @@ const StyledWeekdayButton= styled.button`
 export default function Weekdays(props)  {
 
     const daysOfTheWeek= [{
-        day: 'monday', name: 'M'}, 
-        {day: 'tuesday', name: 'T'},
-        {day:'wednesday', name: 'W'},
-        {day: 'thursday', name: 'Th'},
-        {day: 'friday', name: 'F'},
-        {day: 'saturday', name: 'S'},
-        {day: 'sunday', name: 'Su'}]
+        day: 'monday', name: 'M', id: 1}, 
+        {day: 'tuesday', name: 'T', id: 2},
+        {day:'wednesday', name: 'W', id:3},
+        {day: 'thursday', name: 'Th', id:4},
+        {day: 'friday', name: 'F', id: 5},
+        {day: 'saturday', name: 'S', id: 6},
+        {day: 'sunday', name: 'Su', id: 7 }]
 
     const select =['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 
@@ -39,14 +39,14 @@ export default function Weekdays(props)  {
     function PassDays(day){
         const currentDate = new Date()
         daysIncluded(day)
-        
+        toggleBackgroundColor()
     }
     
     function daysIncluded(day) {
         const check = weekdays.includes(day) 
          const index= weekdays.indexOf(day)
-       check ?   weekdays.splice(index, 1) : weekdays.push(day)
-       console.log(weekdays)
+         check ?  weekdays.splice(index, 1) : weekdays.push(day)
+       console.log('weekdays', weekdays)
        getSchedule(day)
       
        
@@ -72,9 +72,19 @@ export default function Weekdays(props)  {
             //getWeekday(day)
         })
     }
+
+    const [color, setColor] = useState({active:[false]})
      
-
-
+    function toggleBackgroundColor(index){
+        const currentColor = color.active
+        console.log('current color', color)
+        setColor({active: !currentColor})
+        console.log('set current color', color)
+        
+        
+        }
+    
+        
     return (
         <div>
         <StyledWeekdays>
@@ -82,7 +92,7 @@ export default function Weekdays(props)  {
             <div></div>
         <StyledWeekdayDiv>
             {daysOfTheWeek.map((day) =>
-                <StyledWeekdayButton onClick={() => PassDays(day.day)}>{day.name}</StyledWeekdayButton>
+                <StyledWeekdayButton key={daysOfTheWeek.id} className={color.active ? 'clicked' : ''} onClick={() => PassDays(day.day)}>{day.name}</StyledWeekdayButton>
                 )}
         </StyledWeekdayDiv>
         </StyledWeekdays>
