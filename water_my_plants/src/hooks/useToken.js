@@ -6,7 +6,9 @@ export const useToken = param => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const url = "https://watermp.herokuapp.com/dashboard/:id";
+    const url = `https://watermp.herokuapp.com/dashboard/${localStorage.getItem(
+      "id"
+    )}`;
     if (token) {
       Axios.get(url, { headers: { Authorization: `${token}` } })
         .then(res => {

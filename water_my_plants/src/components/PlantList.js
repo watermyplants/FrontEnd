@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { getPlants } from "../actions/actions";
 import NewPlant from "./NewPlant";
 import EditPlant from "./EditPlant";
 
-export const PlantList = props => {
+const PlantList = props => {
   console.log("props in Plantlist", props);
+  useEffect(() => {
+    props.getPlants(JSON.parse(localStorage.getItem("id")));
+  }, []);
   //************************* Sets up state for PlantList *************************
   const [plants, setPlants] = useState([]);
 
@@ -26,6 +29,7 @@ export const PlantList = props => {
 
   return (
     <div className="App">
+      <h1>Test</h1>
       <NewPlant add={submitPlant} />
 
       {/* MAPS OVER PLANTS AND CREATES A CARD */}
@@ -42,9 +46,12 @@ export const PlantList = props => {
 //     isFetching,
 //     error
 // });
-const mapStateToProps = state => {
-  console.log("mapStateToProps Plantlist", state);
-};
+const mapStateToProps = ({ plantData, isFetching, error }) => ({
+  //   console.log("mapStateToProps Plantlist", state);
+  plantData,
+  isFetching,
+  error
+});
 
 export default connect(
   mapStateToProps,
