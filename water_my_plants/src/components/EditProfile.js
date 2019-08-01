@@ -7,18 +7,17 @@ import styled from 'styled-components';
 const EditProfile = (props) => {
  const [editing, setEditing ] = useState(false);
  const [ formState, setFormState ] = useState({
-     name:'Leah Potter',
-     number:'4196667777'
+     name:'',
+     number:''
  })
 
+ 
 
  function submitHandler(event) {
      event.preventDefault()
      if(editing === true){
          setEditing(false)
-     } else{
-            setEditing(true)        
-     }
+     } else{setEditing(true)}
   }
 
   useEffect(() => {
