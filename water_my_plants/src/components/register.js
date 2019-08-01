@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { registerUser } from "../actions/actions";
+import { postRegister } from "../actions/actions";
+import Header from './header'
 
 import styled from "styled-components";
-
 
 const StyledFieldset = styled.fieldset`
   border-radius: 4px;
   width: 26%;
   margin: 0 auto;
+  background-color: white;
 `;
 const StyledH2 = styled.h2`
     color: #198974
@@ -78,7 +79,7 @@ const Register = props => {
     event.preventDefault();
     //
     // setNewUser(newUser);
-    props.registerUser(newUser);
+    props.postRegister(newUser).then(() => props.history.push("/login"));
   }
 
   function handleChange(event) {
@@ -89,8 +90,10 @@ const Register = props => {
 
   return (
     <div>
-      <form onSubmit={event => handleSubmit(event)}>
+      {/* <form onSubmit={event => handleSubmit(event)}> */}
+      <form onSubmit={handleSubmit}>
         <StyledFieldset>
+      <Header/>
           <StyledH2>Sign up</StyledH2>
           <StyledInputDiv>
             <StyledLabel>Name</StyledLabel>
@@ -165,5 +168,5 @@ const mapStateToProps = ({ token, loggingIn, error }) => ({
 
 export default connect(
   mapStateToProps,
-  { registerUser }
+  { postRegister }
 )(Register);

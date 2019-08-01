@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { getPlants } from "../actions/actions";
 import NewPlant from "./NewPlant";
 import EditPlant from "./EditPlant";
 import DeletePlant from "./DeletePlant";
@@ -11,6 +13,8 @@ import Plant from "./Plant";
 
 export const PlantList = (props) => {
 
+export const PlantList = props => {
+  console.log("props in Plantlist", props);
   //************************* Sets up state for PlantList *************************
   const [plants, setPlants] = useState([]);
   // const [deletePlantState, setDelete] = useState([]);
@@ -67,4 +71,17 @@ export const PlantList = (props) => {
   );
 };
 
-// export default PlantList;
+// const mapStateToProps = ({ plantData, isFetching, error }) => ({
+//     console.log("mapStateToProps", plantData),
+//     plantData,
+//     isFetching,
+//     error
+// });
+const mapStateToProps = state => {
+  console.log("mapStateToProps Plantlist", state);
+};
+
+export default connect(
+  mapStateToProps,
+  { getPlants }
+)(PlantList);

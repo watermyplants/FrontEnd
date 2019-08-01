@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 
 //************************* This file will *create* a new plant *************************
+import Weekdays from './Weekdays.js'
+
+//************************* Form to add a new plant *************************
 
 const NewPlant = props => {
     const [input, setInput] = useState({ name: "", type: "", location: "", id: null });
@@ -42,7 +45,7 @@ const submitHandler = event => {
             <input type="text" value={ input.location } onChange={ inputHandler } name="location" />
             </label>
         </div>
-
+        <Weekdays/>
         <button>Add Plant</button>
     </form>
   );
