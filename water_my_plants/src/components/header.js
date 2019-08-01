@@ -21,7 +21,7 @@ const HeaderSignIn = styled.header`
   justify-content: center;
   align-items: center;
   background: #E0F0E3;
-  width: 118%;
+  width: 100%;
 `;
 
 const Wat = styled.div`
@@ -29,7 +29,7 @@ const Wat = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    //margin-top: 50px;
 `;
 
 

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom'
+
 import { postRegister } from "../actions/actions";
 import Header from './header'
 
@@ -7,10 +9,18 @@ import styled from "styled-components";
 
 const StyledFieldset = styled.fieldset`
   border-radius: 4px;
-  width: 26%;
+  border: 0 solid white;
+  width: 23rem;
   margin: 0 auto;
   background-color: white;
+  padding-top: 0;
+  margin-top:10%;
+  margin-bottom: 10%;
+  padding-left: 0%;
+  padding-right: 0;
 `;
+
+
 const StyledH2 = styled.h2`
     color: #198974
     font-size: 18px;
@@ -93,7 +103,7 @@ const Register = props => {
       {/* <form onSubmit={event => handleSubmit(event)}> */}
       <form onSubmit={handleSubmit}>
         <StyledFieldset>
-      <Header/>
+          <Header/>
           <StyledH2>Sign up</StyledH2>
           <StyledInputDiv>
             <StyledLabel>Name</StyledLabel>
@@ -148,7 +158,7 @@ const Register = props => {
           </RegisterFooterDiv>
           <div>
             <StyledP>
-              Got accout? <span>Sign in</span>
+              Got accout? <Link to='/login'>Sign in</Link>
             </StyledP>
           </div>
         </StyledFieldset>

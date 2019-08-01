@@ -19,7 +19,7 @@ const StyledLeft = styled.div`
   font-family: "Raleway";
   font-weight: bolder;
   color: #78c885;
-  width: 87rem;
+  width: 89rem;
 `;
 
 const StyledRight = styled.div`
@@ -55,7 +55,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledPopUpContainer = styled.div`
-  background #f8f9f9;
+  background: #f8f9f9;
 `;
 
 const StyledEditBtnContainer = styled.div`
@@ -94,7 +94,7 @@ const Nav = props => {
   return (
     <StyledHolder>
       <StyledLeft>
-        <StyledLogo src={logo} />
+        <StyledLogo src={logo}  alt='logo'/>
         <h1>Water My Plants</h1>
       </StyledLeft>
       <StyledRight>
@@ -110,10 +110,10 @@ const Nav = props => {
             />
           </label>
         </form>
-        <StyledButton>Plant Library</StyledButton>
-        <Popup trigger={<StyledImg src={img} />} position="bottom right">
+        <StyledButton>Plants</StyledButton>
+        <Popup trigger={<StyledImg src={img} alt='user-image'/>} position="bottom right">
           <StyledPopUpContainer>
-            <img src={img} />
+            <img src={img} alt='user image in popup' />
             <h3>Leah Potter</h3>
             <p>+1 (757) 932 - 3498</p>
           </StyledPopUpContainer>

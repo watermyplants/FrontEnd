@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 import { connect } from "react-redux";
 import { postLogin } from "../actions/actions";
 import Header from "./header";
@@ -7,15 +8,17 @@ import styled from "styled-components";
 const LoginCard = styled.div`
   background: white;
   border-radius: 3px;
-  width: 21rem;
-  height: 430px;
+  width: 23rem;
+  //height: 430px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 30px 0 30px;
+  //padding: 0 30px 0 30px;
   margin: 0 auto;
   color: rgb(145, 143, 143);
   font-weight: bold;
+  margin-top: 10%;
+  margin-bottom: 10%;
 `;
 
 const H1SignIn = styled.div`
@@ -30,6 +33,8 @@ const EmailAndPassword = styled.div`
   text-align: left;
   margin-bottom: 20px;
   margin-top: 20px;
+  padding-left: 5%;
+  padding-right:5%;
 `;
 
 const StyledSignInButton = styled.button`
@@ -64,7 +69,9 @@ const Forgot = styled.p`
 
 const StyledInput = styled.input`
   border: none;
-  width: 100%;
+  width: 80%;
+  padding-left: 5%;
+  padding-right: 5%;
   outline: none;
 `;
 
@@ -137,7 +144,7 @@ const Login = props => {
       </form>
       <BottomSignIn>
         <Need>Need an account?</Need>
-        <SignUp>Sign up</SignUp>
+        <Link to='/register'><SignUp>Sign up</SignUp></Link>
       </BottomSignIn>
     </LoginCard>
   );
