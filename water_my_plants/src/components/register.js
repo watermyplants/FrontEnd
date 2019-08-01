@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom'
+
 import { postRegister } from "../actions/actions";
 import Header from './header'
 
@@ -148,7 +150,7 @@ const Register = props => {
           </RegisterFooterDiv>
           <div>
             <StyledP>
-              Got accout? <span>Sign in</span>
+              Got accout? <Link to='/login'>Sign in</Link>
             </StyledP>
           </div>
         </StyledFieldset>
