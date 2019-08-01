@@ -9,6 +9,7 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import { PlantList } from "./components/PlantList";
 import Weekdays from "./components/Weekdays.js";
 import { useToken } from "./hooks/useToken";
+import Plant from "./components/Plant";
 
 function App() {
   const [, , setToken] = useToken("token");
