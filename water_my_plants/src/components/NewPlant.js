@@ -22,8 +22,8 @@ const submitHandler = event => {
 
 // ************************* Form 
 
-  return (
-    <form onSubmit={submitHandler} className="form">
+  return (<div>
+      <form onSubmit={submitHandler} className="form">
         <h1>Add Plant</h1>
 
         <div className="input-container">
@@ -45,9 +45,10 @@ const submitHandler = event => {
             <input type="text" value={ input.location } onChange={ inputHandler } name="location" />
             </label>
         </div>
-        <Weekdays/>
         <button>Add Plant</button>
     </form>
+        <Weekdays/>
+        </div>
   );
 };
 

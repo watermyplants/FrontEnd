@@ -5,6 +5,7 @@ import NewPlant from "./NewPlant";
 import EditPlant from "./EditPlant";
 import DeletePlant from "./DeletePlant";
 import Plant from "./Plant";
+import Nav from './nav.js'
 
 // "PlantList" **************************************************************************
 // Initial State Passed in:
@@ -53,6 +54,7 @@ export const PlantList = props => {
 
   return (
     <div className="App">
+      <Nav/>
         {/* Creates a new plant and submits info, taken from the form, to state (plants) */}
         <NewPlant add={submitPlant}/>
 

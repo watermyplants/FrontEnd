@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 import { connect } from "react-redux";
 import { postLogin } from "../actions/actions";
 import Header from "./header";
@@ -137,7 +138,7 @@ const Login = props => {
       </form>
       <BottomSignIn>
         <Need>Need an account?</Need>
-        <SignUp>Sign up</SignUp>
+        <Link to='/register'><SignUp>Sign up</SignUp></Link>
       </BottomSignIn>
     </LoginCard>
   );
