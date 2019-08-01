@@ -12,7 +12,12 @@ const StyledFieldset = styled.fieldset`
   width: 26%;
   margin: 0 auto;
   background-color: white;
+  padding-top: 0;
+  margin-top:10%;
+  margin-bottom: 10%;
 `;
+
+
 const StyledH2 = styled.h2`
     color: #198974
     font-size: 18px;
@@ -95,7 +100,7 @@ const Register = props => {
       {/* <form onSubmit={event => handleSubmit(event)}> */}
       <form onSubmit={handleSubmit}>
         <StyledFieldset>
-      <Header/>
+          <Header/>
           <StyledH2>Sign up</StyledH2>
           <StyledInputDiv>
             <StyledLabel>Name</StyledLabel>
