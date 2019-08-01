@@ -25,33 +25,47 @@ const submitHandler = event => {
 
 // ************************* Form 
 const StyledContainer = styled.div`
-    width: 24rem;
+    width: 21rem;
     background-color: #E7E7E7;
     margin:  0 auto;
+    border-radius: 2px;
 `
 const StyledInputContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding-left: 5%;
+    padding-right: 5%;
     
 `
 
 const StyledH1 = styled.h1`
     font-size: 1rem;
     text-align: left;
-    
+    padding-left: 6%;
+    padding-top: 5%;
+    padding-bottom: 3%;
+    color: #198974;
 `
 const StyledInput = styled.input`
+    width: 77%;
+    border-radius: 4px;
+    height: 20px;
     
 `
 const StyledLIDiv = styled.div`
     display: flex;
     justify-content: space-between;
+    width: 95%;
+    margin-bottom: 1%;
+    align-items: flex-end;
 `
 
 const Styledlabel = styled.label`
     display: flex;
     justify-content: space-between;
+    font-size: 14px;
+    color: #7EA897;
 `
 
 
@@ -69,16 +83,18 @@ const Styledlabel = styled.label`
             </StyledLIDiv>
             
             {/* Type of plant input */}
-            <label htmlFor="Type">
-            Type:{" "}
+            <StyledLIDiv>
+            <Styledlabel htmlFor="Type">
+            Type:{" "}</Styledlabel>
             <StyledInput type="text" value={ input.type } onChange={ inputHandler } name="type" />
-            </label>
+            </StyledLIDiv>
 
             {/* Location of plant */}
-            <label htmlFor="Location">
-            Location:{" "}
+            <StyledLIDiv>
+            <Styledlabel htmlFor="Location">
+            Location:{" "}</Styledlabel>
             <StyledInput type="text" value={ input.location } onChange={ inputHandler } name="location" />
-            </label>
+            </StyledLIDiv>
         </StyledInputContainer>
         <button>Add Plant</button>
     </form>
