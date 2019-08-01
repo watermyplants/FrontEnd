@@ -30,7 +30,6 @@ const StyledMiddle= styled.div`
 background: white;
 `;
 
-
 const StyledImg = styled.img`
 width: 30px;
 height: 30px;

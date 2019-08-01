@@ -75,59 +75,61 @@ export const postPlants = addPlants => dispatch => {
   console.log("Test");
   dispatch({ type: ADD_PLANT_START });
   const userId = localStorage.getItem("id");
-  //   console.log(
-  //     "URL",
-  //     `https://watermp.herokuapp.com/dashboard/${userId}/plants/add`
-  //   );
+  console.log("AddPlants", addPlants);
+  console.log("UserId", userId);
+
   return Axios.post(
     `https://watermp.herokuapp.com/dashboard/${userId}/plants/add`,
     addPlants,
+
     {
       headers: { Authorization: localStorage.getItem("token") }
     }
   )
     .then(res => {
       console.log("RES postPlants", res);
-      // dispatch({type: ADD_PLANT_SUCCESS, payload: res.data})
+      dispatch({ type: ADD_PLANT_SUCCESS, payload: res.data });
+    })
+    .catch(
+      err => console.log(err)
+      //   dispatch({ type: ADD_PLANT_FAILURE, payload: err.data.error })
+    );
+};
+
+export const putPlants = (editPlants, plantId) => dispatch => {
+  dispatch({ type: UPDATE_PLANT_START });
+  const userId = localStorage.getItem("id");
+
+  return Axios.put(
+    `https://watermp.herokuapp.com/dashboard/${userId}/my_plant/${plantId}/update`,
+    editPlants,
+    {
+      headers: { Authorization: localStorage.getItem("token") }
+    }
+  )
+    .then(res => {
+      console.log("RES putPlants", res);
+      dispatch({ type: UPDATE_PLANT_SUCCESS, payload: res.data });
     })
     .catch(err => console.log(err));
 };
 
-// export const putPlants = editPlants => dispatch => {
-//   dispatch({ type: UPDATE_PLANT_START });
-//   return Axios.put(
-//     `https://watermp.herokuapp.com/dashboard/${JSON.parse(
-//       localStorage.getItem("id")
-//     )}/my_plant/:plant_id/update`,
-//     editPlants,
-//     {
-//       headers: { Authorization: localStorage.getItem("token") }
-//     }
-//   )
-//     .then(res => {
-//       console.log("RES putPlants", res);
-//       // dispatch({ type: UPDATE_PLANT_SUCCESS, payload: res.data })
-//     })
-//     .catch(err => console.log(err));
-// };
-
-// export const deletePlants = removePlants => dispatch => {
-//   dispatch({ type: DELETE_PLANT_START });
-//   return Axios.delete(
-//     `https://watermp.herokuapp.com/dashboard/${JSON.parse(
-//       localStorage.getItem("id")
-//     )}/my_plant/:plant_id/remove`,
-//     removePlants,
-//     {
-//       headers: { Authorization: localStorage.getItem("token") }
-//     }
-//   )
-//     .then(res => {
-//       console.log("RES deletePlants", res);
-//       //   dispatch({type: DELETE_PLANT_SUCCESS, payload: res.data})
-//     })
-//     .catch(err => console.log(err));
-// };
+export const deletePlants = (removePlants, plantId) => dispatch => {
+  dispatch({ type: DELETE_PLANT_START });
+  const userId = localStorage.getItem("id");
+  return Axios.delete(
+    `https://watermp.herokuapp.com/dashboard/${userId}/my_plant/${plantId}/remove`,
+    removePlants,
+    {
+      headers: { Authorization: localStorage.getItem("token") }
+    }
+  )
+    .then(res => {
+      console.log("RES deletePlants", res);
+      //   dispatch({type: DELETE_PLANT_SUCCESS, payload: res.data})
+    })
+    .catch(err => console.log(err));
+};
 
 //Water schedule actions
 

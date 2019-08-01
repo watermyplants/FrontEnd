@@ -113,9 +113,7 @@ export default function Weekdays(props)  {
         </StyledWeekdayDiv>
         <StyledBtn onClick={sendSchedule}>send</StyledBtn>
         </StyledWeekdays>
-        <Toggle 
-         isOn={weekdayValue}
-         handleToggle={() => setWeekdayValue(!weekdayValue)} />
+        <button onClick={sendSchedule}>Set Schedule</button>
         </StyledWeekdaysContainer>
     )
 }
