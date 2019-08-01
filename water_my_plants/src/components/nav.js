@@ -94,7 +94,7 @@ const Nav = props => {
   return (
     <StyledHolder>
       <StyledLeft>
-        <StyledLogo src={logo} />
+        <StyledLogo src={logo}  alt='logo'/>
         <h1>Water My Plants</h1>
       </StyledLeft>
       <StyledRight>
@@ -111,9 +111,9 @@ const Nav = props => {
           </label>
         </form>
         <StyledButton>Plant Library</StyledButton>
-        <Popup trigger={<StyledImg src={img} />} position="bottom right">
+        <Popup trigger={<StyledImg src={img} alt='user-image'/>} position="bottom right">
           <StyledPopUpContainer>
-            <img src={img} />
+            <img src={img} alt='user image in popup' />
             <h3>Leah Potter</h3>
             <p>+1 (757) 932 - 3498</p>
           </StyledPopUpContainer>
