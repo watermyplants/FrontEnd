@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { getPlants, postPlants, putPlants } from "../actions/actions";
+import {
+  getPlants,
+  postPlants,
+  putPlants,
+  deletePlants
+} from "../actions/actions";
 import NewPlant from "./NewPlant";
 import EditPlant from "./EditPlant";
 import DeletePlant from "./DeletePlant";
@@ -13,19 +18,36 @@ import Plant from "./Plant";
 
 const PlantList = props => {
   console.log("props in Plantlist", props);
+  // GET CALL
   useEffect(() => {
     props.getPlants(localStorage.getItem("id"));
   }, []);
+  // POST CALL
   const test = { name: "test", type: "test type", location: "test loc" };
   //   useEffect(() => {
   //     props.postPlants(test);
   //   }, []);
 
+  //   PUT CALL
   const testPut = { name: "putTest", type: "putTest", location: "putTest" };
 
-  useEffect(() => {
-    props.putPlants(testPut, 7);
-  }, []);
+  //   useEffect(() => {
+  //     props.putPlants(testPut, 7);
+  //   }, []);
+
+  // DELETE CALL
+
+  //   const testDelete = () => {
+  //       props.plantData.filter(plant => !plant.id)
+  //   };
+  //   deletePlant = (e, id) => {
+  //     e.preventDefault();
+  //     this.props.deletePlant(7);
+  //   };
+
+  //   useEffect(() => {
+  //     props.deletePlants(testDelete, 7);
+  //   }, []);
 
   //************************* Sets up state for PlantList *************************
   const [plants, setPlants] = useState([]);
@@ -73,19 +95,29 @@ const PlantList = props => {
       <NewPlant add={submitPlant} />
 
       {/* Maps over 'plants' and creates a card via "EditPlant" component with props passed from 'plants' */}
-      {plants.map((plant, i) => (
+      {/* {plants.map((plant, i) => (
         <div>
           <EditPlant plant={plant} key={i} update={update} />
           <DeletePlant plant={plant} key={props.id} deletePlant={deletePlant} />
         </div>
-      ))}
+      ))} */}
       {props.plantData.map(plant => (
-        <Plant
-          name={plant.name}
-          type={plant.type}
-          location={plant.location}
-          key={props.id}
-        />
+        <div>
+          <Plant
+            name={plant.name}
+            type={plant.type}
+            location={plant.location}
+            key={props.id}
+          />
+          <div>
+            <EditPlant plant={plant} key={props.id} update={update} />
+            <DeletePlant
+              plant={plant}
+              key={props.id}
+              deletePlant={deletePlant}
+            />
+          </div>
+        </div>
       ))}
     </div>
   );
@@ -106,5 +138,5 @@ const mapStateToProps = ({ plantData, isFetching, error }) => ({
 
 export default connect(
   mapStateToProps,
-  { getPlants, postPlants, putPlants }
+  { getPlants, postPlants, putPlants, deletePlants }
 )(PlantList);
