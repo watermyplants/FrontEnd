@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  margin-top: 55px;
 }
 
 
@@ -55,7 +54,7 @@
 }
 
 
-
+/*pop up */
 .popup-overlay {
   position: absolute;
   width: 100%;
@@ -67,4 +66,3 @@
   margin: auto;
   background-color: rgba(0,0,0, 0.5);
 }
-
