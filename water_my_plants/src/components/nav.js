@@ -19,7 +19,7 @@ const StyledLeft = styled.div`
   font-family: "Raleway";
   font-weight: bolder;
   color: #78c885;
-  width: 87rem;
+  width: 89rem;
 `;
 
 const StyledRight = styled.div`
@@ -55,7 +55,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledPopUpContainer = styled.div`
-  background #f8f9f9;
+  background: #f8f9f9;
 `;
 
 const StyledEditBtnContainer = styled.div`
@@ -110,7 +110,7 @@ const Nav = props => {
             />
           </label>
         </form>
-        <StyledButton>Plant Library</StyledButton>
+        <StyledButton>Plants</StyledButton>
         <Popup trigger={<StyledImg src={img} alt='user-image'/>} position="bottom right">
           <StyledPopUpContainer>
             <img src={img} alt='user image in popup' />
