@@ -11,8 +11,6 @@ import Plant from "./Plant";
 //     Empty object
 // **************************************************************************************
 
-export const PlantList = (props) => {
-
 export const PlantList = props => {
   console.log("props in Plantlist", props);
   //************************* Sets up state for PlantList *************************
