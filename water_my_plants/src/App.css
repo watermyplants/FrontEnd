@@ -1,6 +1,11 @@
 .App {
   text-align: center;
+<<<<<<< HEAD
+  margin-top: 55px;
+  
+=======
 }
+>>>>>>> e43354cdfe11d7173303360cd1b2bd1a74d2079b
 
 
 
@@ -9,6 +14,7 @@
   border-radius: 50%;
   outline: none;
 }
+
 
 /* Toggle */
 

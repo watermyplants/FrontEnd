@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { postRegister } from "../actions/actions";
+import Header from './header'
 
 import styled from "styled-components";
 
@@ -8,6 +9,7 @@ const StyledFieldset = styled.fieldset`
   border-radius: 4px;
   width: 26%;
   margin: 0 auto;
+  background-color: white;
 `;
 const StyledH2 = styled.h2`
     color: #198974
@@ -91,6 +93,7 @@ const Register = props => {
       {/* <form onSubmit={event => handleSubmit(event)}> */}
       <form onSubmit={handleSubmit}>
         <StyledFieldset>
+      <Header/>
           <StyledH2>Sign up</StyledH2>
           <StyledInputDiv>
             <StyledLabel>Name</StyledLabel>
