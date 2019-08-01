@@ -67,7 +67,8 @@ export default function Weekdays()  {
     function PassDays(day){
         const currentDate = new Date()
         daysIncluded(day)
-        toggleBackgroundColor()
+        console.log("day",day)
+        toggleBackgroundColor(day)
     }
     
     function daysIncluded(day) {
@@ -101,14 +102,12 @@ export default function Weekdays()  {
         })
     }
 
-    const [color, setColor] = useState({active:[false]})
+    const [color, setColor] = useState({active:[]})
      
-    function toggleBackgroundColor(index){
-        const currentColor = color.active
-        console.log('current color', color)
-        setColor({active: !currentColor})
-        console.log('set current color', color)
-        
+    function toggleBackgroundColor(day){
+        const index= color.active.indexOf(day)
+        const newActive= index !== -1 ?  color.active.filter(activeDay => activeDay !== day) : color.active.concat(day)
+        setColor({active: newActive})
         
         }
     
@@ -120,7 +119,7 @@ export default function Weekdays()  {
             <div></div>
         <StyledWeekdayDiv>
             {daysOfTheWeek.map((day) =>
-                <StyledWeekdayButton key={daysOfTheWeek.id} className={color.active ? 'clicked' : ''} onClick={() => PassDays(day.day)}>{day.name}</StyledWeekdayButton>
+                <StyledWeekdayButton key={day.id} className={color.active.includes(day.day) ? 'clicked' : ''} onClick={() => PassDays(day.day)}>{day.name}</StyledWeekdayButton>
                 )}
         </StyledWeekdayDiv>
             <StyledSchedulebtn onClick={sendSchedule}>Set Schedule</StyledSchedulebtn>
