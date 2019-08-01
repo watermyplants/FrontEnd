@@ -4,6 +4,7 @@ import styled from 'styled-components'
 //************************* This file will *create* a new plant *************************
 import Weekdays from './Weekdays.js'
 import Interval from './interval';
+import Notifications from './receieveNotifications.js'
 
 //************************* Form to add a new plant *************************
 
@@ -83,6 +84,7 @@ const Styledlabel = styled.label`
     </form>
      <Weekdays/>
      <Interval />
+     <Notifications/>
      </StyledContainer>)
 };
 
