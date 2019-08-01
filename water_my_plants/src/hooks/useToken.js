@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 
 export const useToken = param => {
@@ -12,7 +12,7 @@ export const useToken = param => {
     if (token) {
       Axios.get(url, { headers: { Authorization: `${token}` } })
         .then(res => {
-          console.log("RES useToken.js", res);
+          // console.log("RES useToken.js", res);
           setState(res.data);
         })
         .catch(err => {

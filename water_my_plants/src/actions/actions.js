@@ -56,14 +56,12 @@ export const postLogin = creds => dispatch => {
 
 //Plant actions
 
-export const getPlants = id => dispatch => {
-  console.log("Test");
+export const getPlants = userId => dispatch => {
   dispatch({ type: FETCH_PLANT_START });
   //   const id = localStorage.getItem("id");
   //   console.log("URL", `https://watermp.herokuapp.com/dashboard/${id}`);
 
-  return Axios.get(`https://watermp.herokuapp.com/dashboard/${id}`, {
-    // JSON.parse(localStorage.getItem("id")),
+  return Axios.get(`https://watermp.herokuapp.com/dashboard/${userId}`, {
     headers: { Authorization: localStorage.getItem("token") }
   })
     .then(res => {
@@ -73,23 +71,27 @@ export const getPlants = id => dispatch => {
     .catch(err => console.log(err));
 };
 
-// export const postPlants = addPlants => dispatch => {
-//   dispatch({ type: ADD_PLANT_START });
-//   return Axios.post(
-//     `https://watermp.herokuapp.com/dashboard/${JSON.parse(
-//       localStorage.getItem("id")
-//     )}/plants/add`,
-//     addPlants,
-//     {
-//       headers: { Authorization: localStorage.getItem("token") }
-//     }
-//   )
-//     .then(res => {
-//       console.log("RES postPlants", res);
-//       // dispatch({type: ADD_PLANT_SUCCESS, payload: res.data})
-//     })
-//     .catch(err => console.log(err));
-// };
+export const postPlants = addPlants => dispatch => {
+  console.log("Test");
+  dispatch({ type: ADD_PLANT_START });
+  const userId = localStorage.getItem("id");
+  console.log(
+    "URL",
+    `https://watermp.herokuapp.com/dashboard/${userId}/plants/add`
+  );
+  return Axios.post(
+    `https://watermp.herokuapp.com/dashboard/${userId}/plants/add`,
+    addPlants,
+    {
+      headers: { Authorization: localStorage.getItem("token") }
+    }
+  )
+    .then(res => {
+      console.log("RES postPlants", res);
+      // dispatch({type: ADD_PLANT_SUCCESS, payload: res.data})
+    })
+    .catch(err => console.log(err));
+};
 
 // export const putPlants = editPlants => dispatch => {
 //   dispatch({ type: UPDATE_PLANT_START });

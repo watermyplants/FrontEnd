@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { getPlants } from "../actions/actions";
+import { getPlants, postPlants } from "../actions/actions";
 import NewPlant from "./NewPlant";
 import EditPlant from "./EditPlant";
 
 const PlantList = props => {
   console.log("props in Plantlist", props);
   useEffect(() => {
-    props.getPlants(JSON.parse(localStorage.getItem("id")));
+    props.getPlants(localStorage.getItem("id"));
+  }, []);
+  useEffect(() => {
+    // props.postPlants(localStorage.getItem("id"));
+    props.postPlants();
   }, []);
   //************************* Sets up state for PlantList *************************
   const [plants, setPlants] = useState([]);
@@ -55,5 +59,5 @@ const mapStateToProps = ({ plantData, isFetching, error }) => ({
 
 export default connect(
   mapStateToProps,
-  { getPlants }
+  { getPlants, postPlants }
 )(PlantList);
