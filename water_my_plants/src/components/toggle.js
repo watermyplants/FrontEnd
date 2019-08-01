@@ -1,5 +1,5 @@
 import React from 'react';
-const Toggle = ({ isOn, handleToggle }) => {
+const Toggle = ({ isOn, handleToggle, toggleid }) => {
 
     return (
         <>
@@ -7,13 +7,13 @@ const Toggle = ({ isOn, handleToggle }) => {
             checked={isOn}
             onChange={handleToggle}
             className="toggle-checkbox"
-            id={`toggle-new`}
+            id={toggleid}
             type="checkbox"
           />
           <label
             style={{ background: isOn && '#78c885'}}
             className="toggle-label"
-            htmlFor={`toggle-new`}
+            htmlFor={toggleid}
           >
             <span className={`toggle-button`} />
           </label>

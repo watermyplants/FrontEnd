@@ -9,6 +9,7 @@ const StyledWeekdaysContainer = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
+background: white;
 `;
 
 const StyledWeekdays = styled.div`
@@ -19,7 +20,7 @@ const StyledWeekdays = styled.div`
 `
 
 const StyledWeekdayDiv = styled.div`
-    display: flex
+    // display: flex
 `
 
 const StyledWeekdayButton= styled.button`
@@ -27,13 +28,24 @@ const StyledWeekdayButton= styled.button`
     outline: none;
 `
 
-const StyledBtn= styled.button`
-    border-radius: 50%;
-    outline: none;
-    display: none;
+const StyledSchedulebtn= styled.button`
+color: white;
+background: #78c885;
+border: none;
+border-radius: 3px;
+outline: none;
+padding: 10px 10px 10px 10px;
+margin-top: 10px;
+cursor:pointer;
 `
 
-export default function Weekdays(props)  {
+const StyledH4 = styled.h4`
+color: teal;
+font-size: 20px;
+`;
+
+
+export default function Weekdays()  {
     const [weekdayValue, setWeekdayValue ] = useState(false);
 
 
@@ -104,19 +116,20 @@ export default function Weekdays(props)  {
     return (
         <StyledWeekdaysContainer>
         <StyledWeekdays>
-            <h2>Weekdays to water</h2>
+            <StyledH4>Weekdays to water</StyledH4>
             <div></div>
         <StyledWeekdayDiv>
             {daysOfTheWeek.map((day) =>
                 <StyledWeekdayButton key={daysOfTheWeek.id} className={color.active ? 'clicked' : ''} onClick={() => PassDays(day.day)}>{day.name}</StyledWeekdayButton>
                 )}
         </StyledWeekdayDiv>
-        <Toggle
-        isOn={weekdayValue}
-        handleToggle={() => setWeekdayValue(!weekdayValue)}
-         />
+            <StyledSchedulebtn onClick={sendSchedule}>Set Schedule</StyledSchedulebtn>
         </StyledWeekdays>
-        <button onClick={sendSchedule}>Set Schedule</button>
+            <Toggle
+            isOn={weekdayValue}
+            handleToggle={() => setWeekdayValue(!weekdayValue)}
+            toggleid='this'
+            />
         </StyledWeekdaysContainer>
     )
 }
