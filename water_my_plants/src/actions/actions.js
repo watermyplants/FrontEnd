@@ -6,18 +6,30 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   FETCH_PLANT_START,
-  FETCH_PLANT_SUCCESS
+  FETCH_PLANT_SUCCESS,
+  FAILURE_PLANT_FAILURE,
+  ADD_PLANT_START,
+  ADD_PLANT_SUCCESS,
+  ADD_PLANT_FAILURE,
+  UPDATE_PLANT_START,
+  UPDATE_PLANT_SUCCESS,
+  UPDATE_PLANT_FAILURE,
+  DELETE_PLANT_START,
+  DELETE_PLANT_SUCCESS,
+  DELETE_PLANT_FAILURE
 } from "../actions/types";
 
 import Axios from "axios";
 
+//Register Action
+
 export const postRegister = creds => dispatch => {
-  console.log("registerUser creds", creds);
+  console.log("postRegister creds", creds);
   dispatch({ type: REGISTER_START });
   return (
     Axios.post("https://watermp.herokuapp.com/register", creds)
       .then(res => {
-        console.log("RES inside actions register", res);
+        console.log("RES postRegister", res);
         dispatch({ type: REGISTER_SUCCESS });
       })
       // .catch(err => console.log(err.response.data));
@@ -25,13 +37,16 @@ export const postRegister = creds => dispatch => {
   );
 };
 
+//Login action
+
 export const postLogin = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return (
     Axios.post("https://watermp.herokuapp.com/login", creds)
       .then(res => {
-        console.log("RES inside of actions login", res);
+        console.log("RES postLogin", res);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("id", res.data.id);
         dispatch({ type: LOGIN_SUCCESS });
       })
       // .catch(err => console.log(err));
@@ -39,23 +54,91 @@ export const postLogin = creds => dispatch => {
   );
 };
 
-export const getPlants = () => dispatch => {
+//Plant actions
+
+export const getPlants = userId => dispatch => {
   dispatch({ type: FETCH_PLANT_START });
-  return Axios.get("https://watermp.herokuapp.com/dashboard/:id")
-    .then(
-      res => console.log("res in getPlants action", res)
-      // dispatch({type: FETCH_PLANT_SUCCESS, payload: res.data})
-    )
+  //   const id = localStorage.getItem("id");
+  //   console.log("URL", `https://watermp.herokuapp.com/dashboard/${id}`);
+
+  return Axios.get(`https://watermp.herokuapp.com/dashboard/${userId}`, {
+    headers: { Authorization: localStorage.getItem("token") }
+  })
+    .then(res => {
+      console.log("RES getPlants", res);
+      dispatch({ type: FETCH_PLANT_SUCCESS, payload: res.data });
+    })
     .catch(err => console.log(err));
 };
 
-export const getWeekday = () => dispatch => {
-  dispatch({ type: FETCH_PLANT_START });
-  return Axios.post(
-    "https://watermp.herokuapp.com/dashboard/:id/my_plant/:plant_id/add_schedule"
-  ).then(res =>
-    console("Res inside of getWeekday action", res)
-      //dispatch ({type: FETCH_PLANT_SUCCESS, payload: res.data})
-      .catch(err => console.log(err))
+export const postPlants = addPlants => dispatch => {
+  console.log("Test");
+  dispatch({ type: ADD_PLANT_START });
+  const userId = localStorage.getItem("id");
+  console.log(
+    "URL",
+    `https://watermp.herokuapp.com/dashboard/${userId}/plants/add`
   );
+  return Axios.post(
+    `https://watermp.herokuapp.com/dashboard/${userId}/plants/add`,
+    addPlants,
+    {
+      headers: { Authorization: localStorage.getItem("token") }
+    }
+  )
+    .then(res => {
+      console.log("RES postPlants", res);
+      // dispatch({type: ADD_PLANT_SUCCESS, payload: res.data})
+    })
+    .catch(err => console.log(err));
 };
+
+// export const putPlants = editPlants => dispatch => {
+//   dispatch({ type: UPDATE_PLANT_START });
+//   return Axios.put(
+//     `https://watermp.herokuapp.com/dashboard/${JSON.parse(
+//       localStorage.getItem("id")
+//     )}/my_plant/:plant_id/update`,
+//     editPlants,
+//     {
+//       headers: { Authorization: localStorage.getItem("token") }
+//     }
+//   )
+//     .then(res => {
+//       console.log("RES putPlants", res);
+//       // dispatch({ type: UPDATE_PLANT_SUCCESS, payload: res.data })
+//     })
+//     .catch(err => console.log(err));
+// };
+
+// export const deletePlants = removePlants => dispatch => {
+//   dispatch({ type: DELETE_PLANT_START });
+//   return Axios.delete(
+//     `https://watermp.herokuapp.com/dashboard/${JSON.parse(
+//       localStorage.getItem("id")
+//     )}/my_plant/:plant_id/remove`,
+//     removePlants,
+//     {
+//       headers: { Authorization: localStorage.getItem("token") }
+//     }
+//   )
+//     .then(res => {
+//       console.log("RES deletePlants", res);
+//       //   dispatch({type: DELETE_PLANT_SUCCESS, payload: res.data})
+//     })
+//     .catch(err => console.log(err));
+// };
+
+//Water schedule actions
+
+// export const postWeekday = () => dispatch => {
+//   dispatch({ type: FETCH_PLANT_START });
+//   return Axios.post(
+//     "https://watermp.herokuapp.com/dashboard/:id/my_plant/:plant_id/add_schedule"
+//   )
+//     .then(
+//       res => console("Res inside of getWeekday action", res)
+//       //dispatch ({type: FETCH_PLANT_SUCCESS, payload: res.data})
+//     )
+//     .catch(err => console.log(err));
+// };

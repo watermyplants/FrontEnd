@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { getPlants } from "../actions/actions";
+import { getPlants, postPlants } from "../actions/actions";
 import NewPlant from "./NewPlant";
 import EditPlant from "./EditPlant";
 import DeletePlant from "./DeletePlant";
@@ -11,8 +11,15 @@ import Plant from "./Plant";
 //     Empty object
 // **************************************************************************************
 
-export const PlantList = props => {
+const PlantList = props => {
   console.log("props in Plantlist", props);
+  useEffect(() => {
+    props.getPlants(localStorage.getItem("id"));
+  }, []);
+  useEffect(() => {
+    // props.postPlants(localStorage.getItem("id"));
+    props.postPlants();
+  }, []);
   //************************* Sets up state for PlantList *************************
   const [plants, setPlants] = useState([]);
   // const [deletePlantState, setDelete] = useState([]);
@@ -53,6 +60,10 @@ export const PlantList = props => {
 
   return (
     <div className="App">
+
+      <h1>Test</h1>
+    
+
         {/* Creates a new plant and submits info, taken from the form, to state (plants) */}
         <NewPlant add={submitPlant}/>
 
@@ -65,6 +76,7 @@ export const PlantList = props => {
           </div>
         ))}
 
+
     </div>
   );
 };
@@ -75,11 +87,14 @@ export const PlantList = props => {
 //     isFetching,
 //     error
 // });
-const mapStateToProps = state => {
-  console.log("mapStateToProps Plantlist", state);
-};
+const mapStateToProps = ({ plantData, isFetching, error }) => ({
+  //   console.log("mapStateToProps Plantlist", state);
+  plantData,
+  isFetching,
+  error
+});
 
 export default connect(
   mapStateToProps,
-  { getPlants }
+  { getPlants, postPlants }
 )(PlantList);

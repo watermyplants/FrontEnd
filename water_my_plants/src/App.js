@@ -4,10 +4,12 @@ import "./App.css";
 
 import Login from "./components/login";
 import Register from "./components/register";
+import PlantList from "./components/PlantList";
 
 import { PrivateRoute } from "./components/PrivateRoute";
-import { PlantList } from "./components/PlantList";
-import Weekdays from "./components/Weekdays.js";
+
+// import { Weekdays } from "./components/Weekdays.js";
+
 import { useToken } from "./hooks/useToken";
 import Plant from "./components/Plant";
 
