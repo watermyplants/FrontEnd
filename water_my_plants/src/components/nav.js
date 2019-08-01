@@ -1,68 +1,82 @@
 import React, { useState } from "react";
-import Toggle from './toggle';
-import styled from 'styled-components';
-import img from './photos/testimonial1.jpg';
-import logo from './photos/logo.png';
+import Popup from "reactjs-popup";
+import EditProfile from './EditProfile';
+import styled from "styled-components";
+import img from "./photos/testimonial1.jpg";
+import logo from "./photos/logo.png";
 
-
-const StyledHolder = styled.div `
-display: flex;
-background: #E0F0E3;
-padding-bottom: 3px;
-padding-top: 3px;
+const StyledHolder = styled.div`
+  display: flex;
+  background: #e0f0e3;
+  padding-bottom: 3px;
+  padding-top: 3px;
 `;
 
-const StyledLeft = styled.div `
-display: flex;
-align-items: center;
-font-size: 14px;
-font-family: 'Raleway';
-font-weight: bolder;
-color: #78c885;
-width: 93rem;
+const StyledLeft = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-family: "Raleway";
+  font-weight: bolder;
+  color: #78c885;
+  width: 87rem;
 `;
 
-const StyledRight = styled.div `
-display: flex;
-padding: 0 0 0 20px;
-align-items: center;
+const StyledRight = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const StyledImg = styled.img`
-width: 55px;
-height: 55px;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
 `;
 
 const StyledLogo = styled.img`
-width: 40px;
-height: 40px;
+  width: 40px;
+  height: 40px;
 `;
 
 const StyledButton = styled.button`
-background:#78c885;
+  background: #78c885;
+  color: white;
+  font-family: "Raleway";
+  font-size: 15px;
+  padding: 8px 10px 8px 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+`;
+
+const StyledInput = styled.input`
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+`;
+
+const StyledPopUpContainer = styled.div`
+  background: #f8f9f9;
+`;
+
+const StyledEditBtnContainer = styled.div`
+background: #138D75;
+padding-top: 10px;
+padding-bottom: 10px;
+`;
+
+const EditAccount = styled.button`
+border: none;
 color: white;
-font-family: 'Raleway';
-font-size: 15px;
-padding: 8px 10px 8px 10px;
-margin-left: 5px;
-margin-right: 5px;
+background: #138D75;
+cursor: pointer;
+font-size: 12px;
+outline: none;
 `;
-
-const StyledInput =  styled.input`
- padding-top: 10px;
- padding-bottom: 10px;
- border-radius: 5px;
-`;
-
-
 
 const Nav = props => {
   const [navsSearch, setNavsSearch] = useState({
     search: ""
   });
-
-  const [value, setValue ] = useState(false);
-
 
   function submitHandler(event) {
     event.preventDefault();
@@ -75,32 +89,41 @@ const Nav = props => {
     console.log(navsSearch);
     setNavsSearch({ ...navsSearch, [event.target.name]: event.target.value });
   }
+
+
   return (
     <StyledHolder>
-     <StyledLeft >
-      <StyledLogo src={logo} />
-      <h1>Water My Plants</h1>
+      <StyledLeft>
+        <StyledLogo src={logo} />
+        <h1>Water My Plants</h1>
       </StyledLeft>
-      <StyledRight >
-      <form onSubmit={submitHandler}>
-        <label>
-          <StyledInput
-            type="search"
-            name="search"
-            results='0'
-            value={navsSearch.search}
-            placeholder="Search plant"
-            onChange={changeHandler}
-          />
-        </label>
-      </form>
-      <StyledButton>Profile</StyledButton>
-      <StyledImg src={img} />
+      <StyledRight>
+        <form onSubmit={submitHandler}>
+          <label>
+            <StyledInput
+              type="search"
+              name="search"
+              results="0"
+              value={navsSearch.search}
+              placeholder="Search plant"
+              onChange={changeHandler}
+            />
+          </label>
+        </form>
+        <StyledButton>Plant Library</StyledButton>
+        <Popup trigger={<StyledImg src={img} />} position="bottom right">
+          <StyledPopUpContainer>
+            <img src={img} />
+            <h3>Leah Potter</h3>
+            <p>+1 (757) 932 - 3498</p>
+          </StyledPopUpContainer>
+          <StyledEditBtnContainer>
+            <Popup trigger={<EditAccount>EDIT ACCOUNT DETAILS</EditAccount>} position='top center'>
+                <EditProfile />
+            </Popup>       
+         </StyledEditBtnContainer>
+        </Popup>
       </StyledRight>
-      <Toggle 
-      isOn={value}
-      handleToggle={() => setValue(!value)}
-      />
     </StyledHolder>
   );
 };

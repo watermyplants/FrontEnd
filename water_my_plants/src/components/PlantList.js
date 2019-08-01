@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NewPlant from "./NewPlant";
 import EditPlant from "./EditPlant";
 
+
 export const PlantList = () => {
   //************************* Sets up state for PlantList *************************
   const [plants, setPlants] = useState([]);
