@@ -96,7 +96,7 @@ export default function Weekdays(props)  {
                 )}
         </StyledWeekdayDiv>
         </StyledWeekdays>
-        <button onClick={sendSchedule}>send</button>
+        <button onClick={sendSchedule}>Set Schedule</button>
         </div>
     )
 }
