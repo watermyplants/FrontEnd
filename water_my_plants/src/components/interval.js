@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import Toggle from './toggle';
+
 import styled from 'styled-components'
 
 export default function Interval() {
   const [count, setCount] = useState(0);
+  const [value, setValue ] = useState(false);
 
   const StyledH4 = styled.h4`
   color: teal;
@@ -35,7 +38,7 @@ export default function Interval() {
   `;
 
   const StyledInput = styled.input`
-  width: 5rem;
+  width: 8rem;
   padding: 0 0 10px 0;
   margin-left: 5px;
   `;
@@ -48,10 +51,6 @@ export default function Interval() {
     setCount(count);
   }
 
-  function changeHandler(event) {
-    console.log(count);
-    setCount({ ...count, [event.target.name]: event.target.value });
-  }
 
   const handleIncrement = () =>
       setTimeout(
@@ -81,14 +80,16 @@ export default function Interval() {
         <StyledLabel>
           Start Date: 
           <StyledInput
-            type="text"
-            name="date"
+            type="date"
             value={count.date}
             placeholder=""
-            onChange={changeHandler}
           />
         </StyledLabel>
       </form>
+      <Toggle 
+      isOn={value}
+      handleToggle={() => setValue(!value)}
+      />
     </StyledIntervalContainer>
 
   );
