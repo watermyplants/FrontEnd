@@ -9,12 +9,15 @@ import styled from "styled-components";
 
 const StyledFieldset = styled.fieldset`
   border-radius: 4px;
-  width: 26%;
+  border: 0 solid white;
+  width: 23rem;
   margin: 0 auto;
   background-color: white;
   padding-top: 0;
   margin-top:10%;
   margin-bottom: 10%;
+  padding-left: 0%;
+  padding-right: 0;
 `;
 
 
