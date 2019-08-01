@@ -1,17 +1,27 @@
 import React from "react";
 import styled from 'styled-components';
+import logo from './photos/logo.png';
+
+
+const StyledLogo = styled.img`
+width: 30px;
+height: 30px;
+`;
 
 const H3 = styled.h3`
     font-size: 22px;
     font-family: 'Raleway';
     font-weight: bolder;
     color: #78c885;
-    width: 24.8rem;
+    margin: 23px 0 23px 0;
 `;
 
 const HeaderSignIn = styled.header`
-     background: #E0F0E3;
-     text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #E0F0E3;
+  width: 118%;
 `;
 
 const Wat = styled.div`
@@ -19,18 +29,22 @@ const Wat = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
 `;
 
 
-export default function Header() {
+const Header = () => {
 
 
   
   return (
     <Wat>
     <HeaderSignIn>
+        <StyledLogo src={logo} />
         <H3>Water my Plants</H3>
     </HeaderSignIn>
     </Wat>
   );
 }
+
+export default Header;

@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 
+//************************* This file will *create* a new plant *************************
+import Weekdays from './Weekdays.js'
+
 //************************* Form to add a new plant *************************
 
 const NewPlant = props => {
-    // const [input, setInput] = useState({ name: "", email: "", role: "", id: null });
     const [input, setInput] = useState({ name: "", type: "", location: "", id: null });
 
 //************************* Form Handlers *************************
@@ -18,7 +20,7 @@ const submitHandler = event => {
     setInput({ name: "", type: "", location: "", id: null });
 };
 
-// *************************
+// ************************* Form 
 
   return (
     <form onSubmit={submitHandler} className="form">
@@ -28,22 +30,22 @@ const submitHandler = event => {
             {/* Name of plant input */}
             <label htmlFor="Name">
             Name:{" "}
-            <input type="text" value={input.name} onChange={inputHandler} name="name" />
+            <input type="text" value={ input.name } onChange={ inputHandler } name="name" />
             </label>
             
             {/* Type of plant input */}
             <label htmlFor="Type">
             Type:{" "}
-            <input type="text" value={input.type} onChange={inputHandler} name="type" />
+            <input type="text" value={ input.type } onChange={ inputHandler } name="type" />
             </label>
 
             {/* Location of plant */}
             <label htmlFor="Location">
             Location:{" "}
-            <input type="text" value={input.location} onChange={inputHandler} name="location" />
+            <input type="text" value={ input.location } onChange={ inputHandler } name="location" />
             </label>
         </div>
-
+        <Weekdays/>
         <button>Add Plant</button>
     </form>
   );
