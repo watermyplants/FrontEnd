@@ -75,10 +75,10 @@ export const postPlants = addPlants => dispatch => {
   console.log("Test");
   dispatch({ type: ADD_PLANT_START });
   const userId = localStorage.getItem("id");
-  console.log(
-    "URL",
-    `https://watermp.herokuapp.com/dashboard/${userId}/plants/add`
-  );
+  //   console.log(
+  //     "URL",
+  //     `https://watermp.herokuapp.com/dashboard/${userId}/plants/add`
+  //   );
   return Axios.post(
     `https://watermp.herokuapp.com/dashboard/${userId}/plants/add`,
     addPlants,
