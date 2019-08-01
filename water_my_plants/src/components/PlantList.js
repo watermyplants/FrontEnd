@@ -60,8 +60,8 @@ const PlantList = props => {
 
   return (
     <div className="App">
-
       <h1>Test</h1>
+      
     
 
         {/* Creates a new plant and submits info, taken from the form, to state (plants) */}

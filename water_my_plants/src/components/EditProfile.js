@@ -1,35 +1,51 @@
-import React, { useState } from 'react';
-import img from './photos/testimonial1.jpg'
-import styled from 'styled-components';
-
-const EditProfile = () => {
-//  const [editing, setEditing ] = useState(false);
-//  const initialFormState = { name:'', number: ''}
-//  const [account, setAccount ] = useState(initialFormState)
+import React, { useState } from "react";
 
 
-    return(
-        <div className='editprofile-container'>
-            <div className='top'>
-                <h3>Account Settings</h3>
-            </div>
-            <div className='image'>
-                <img src={img} />
-            </div>
-            <div className='middle-content'>
-                <div className='edit-info'>
-                    <h4>Leah Potter</h4>
-                    <button>Edit name</button>
-                    <p>+1(757) 932-3498</p>
-                    <button>Edit mobile number</button>
+const EditProfile = props => {
+    const [formState, setFormState] = useState({ name:'', number: ''});
+    const [editing, setEditing] = useState(false);
+    
+    const handleEdit = e => {
+        setEditing(!editing);
+    };
+
+    const inputHandler = e => {
+        setFormState({ ...formState, [e.target.name]: e.target.value });
+        console.log("MAYBE", formState);
+    };
+
+    const handleUpdate = e => {
+        e.preventDefault();
+        props.update(formState)
+        setEditing(false);
+        console.log(`CARD ${props.user} Guud`);
+    };
+    return editing ? (
+            <form onSubmit={handleUpdate} className="account-settings">
+                <div>
+                    <label htmlFor="Username">
+                        Username:{" "}
+                        <input type="text" value={formState.name} onChange={inputHandler} name="name" />
+                    </label>
+
+                    <label htmlFor="Number">
+                        Telephone Number:{" "}
+                        <input type="tel" value={formState.number} onChange={inputHandler} name="number" />
+                    </label>
                 </div>
-                <div className='bottom-content'>
-                    <button>Cancel</button>
-                    <button>Save</button>
-                </div> 
+                <button>Update</button>
+            </form>
+    ) : (
+            <div className="updated-user">
+                <h1>Account Settings </h1>
+                <h3>Username</h3>
+                <p>{props.name}</p>
+                <h3>Telephone number</h3>
+                <p>{props.number}</p>
+                <button>Cancel</button>
+                <button onClick={handleEdit}>Save/Update</button>
             </div>
-        </div>
     );
-}
+};
 
-export default EditProfile
+export default EditProfile;

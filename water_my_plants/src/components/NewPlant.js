@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 //************************* This file will *create* a new plant *************************
 import Weekdays from './Weekdays.js'
+import Interval from './interval';
 
 //************************* Form to add a new plant *************************
 
@@ -46,6 +47,7 @@ const submitHandler = event => {
             </label>
         </div>
         <Weekdays/>
+        <Interval />
         <button>Add Plant</button>
     </form>
   );
