@@ -134,7 +134,7 @@ export const reducer = (state = initialState, { type, payload }) => {
     case DELETE_PLANT_SUCCESS:
       return {
         ...state,
-        plantData: payload,
+        plantData: state.plantData.filter(plant => plant.id !== payload),
         weekday: payload,
         isFetching: false,
         error: ""

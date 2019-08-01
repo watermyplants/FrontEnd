@@ -19,8 +19,12 @@ export default function Interval() {
   justify-content: center;
   align-items: center;
   text-align: left;
+  background: white;
   `;
-
+ const StyledToggle = styled.div`
+ display: flex;
+ flex-direction: row;
+ `;
 
  
   const StyledDiv = styled.div`
@@ -86,10 +90,13 @@ export default function Interval() {
           />
         </StyledLabel>
       </form>
+      <StyledToggle >
       <Toggle 
       isOn={value}
       handleToggle={() => setValue(!value)}
+      toggleid='wat'
       />
+      </StyledToggle>
     </StyledIntervalContainer>
 
   );

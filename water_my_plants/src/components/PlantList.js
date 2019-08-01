@@ -10,8 +10,7 @@ import NewPlant from "./NewPlant";
 import EditPlant from "./EditPlant";
 import DeletePlant from "./DeletePlant";
 import Plant from "./Plant";
-import Nav from './nav';
-
+import Nav from "./nav";
 
 // "PlantList" **************************************************************************
 // Initial State Passed in:
@@ -25,7 +24,7 @@ const PlantList = props => {
     props.getPlants(localStorage.getItem("id"));
   }, []);
   // POST CALL
-  const test = { name: "test", type: "test type", location: "test loc" };
+  //   const test = { name: "test", type: "test type", location: "test loc" };
   //   useEffect(() => {
   //     props.postPlants(test);
   //   }, []);
@@ -34,7 +33,7 @@ const PlantList = props => {
   const testPut = { name: "putTest", type: "putTest", location: "putTest" };
 
   //   useEffect(() => {
-  //     props.putPlants(testPut, 7);
+  //     props.putPlants(testPut, 5);
   //   }, []);
 
   // DELETE CALL
@@ -80,28 +79,21 @@ const PlantList = props => {
       })
     ]);
 
-  const deletePlant = plantInQue =>
-    setPlants([
-      ...plants.map(plant => {
-        if (plant.id === plantInQue.id) {
-          return {};
-        }
-      })
-    ]);
+  //   const deletePlant = plantInQue =>
+  //     setPlants([
+  //       ...plants.map(plant => {
+  //         if (plant.id === plantInQue.id) {
+  //           return {};
+  //         }
+  //       })
+  //     ]);
 
   return (
     <div className="App">
-
-    
       <Nav />
-    
-      <h1>Test</h1>
-      
-    
-
 
       {/* Creates a new plant and submits info, taken from the form, to state (plants) */}
-      <NewPlant add={submitPlant} />
+      {/* <NewPlant add={submitPlant} /> */}
 
       {/* Maps over 'plants' and creates a card via "EditPlant" component with props passed from 'plants' */}
       {/* {plants.map((plant, i) => (
@@ -123,7 +115,7 @@ const PlantList = props => {
             <DeletePlant
               plant={plant}
               key={props.id}
-              deletePlant={deletePlant}
+              //   deletePlant={deletePlant}
             />
           </div>
         </div>
