@@ -55,7 +55,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledPopUpContainer = styled.div`
-  background: #f8f9f9;
+  background #f8f9f9;
 `;
 
 const StyledEditBtnContainer = styled.div`
@@ -118,7 +118,7 @@ const Nav = props => {
             <p>+1 (757) 932 - 3498</p>
           </StyledPopUpContainer>
           <StyledEditBtnContainer>
-            <Popup trigger={<EditAccount>EDIT ACCOUNT DETAILS</EditAccount>} position='top center'>
+            <Popup trigger={<EditAccount>EDIT ACCOUNT DETAILS</EditAccount>} position='left'>
                 <EditProfile />
             </Popup>       
          </StyledEditBtnContainer>
