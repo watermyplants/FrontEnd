@@ -1,10 +1,13 @@
 .App {
   text-align: center;
+<<<<<<< HEAD
   margin-top: 55px;
   
-
-
+=======
 }
+>>>>>>> e43354cdfe11d7173303360cd1b2bd1a74d2079b
+
+
 
 .clicked{
   background-color: #F9FF00;
@@ -57,5 +60,15 @@
 }
 
 
-
-
+/*pop up */
+.popup-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0,0,0, 0.5);
+}
