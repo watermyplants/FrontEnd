@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 
 const EditProfile = props => {
-  const [formState, setFormState] = useState({ name: "Leah Potter", number: "+1 (757) 932-3498" });
+  const [formState, setFormState] = useState({ name: "", number: "" });
   const [editing, setEditing] = useState(false);
 
  const StyledFlex = styled.div`

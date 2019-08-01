@@ -1,13 +1,21 @@
 import React, {useState, useEffect} from 'react'
 import styled from "styled-components"
+import Toggle from './toggle';
 import axios from 'axios'
 //import {getWeekday} from '../actions/actions.js'
 
 
+const StyledWeekdaysContainer = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+`;
+
 const StyledWeekdays = styled.div`
     display: flex;
     flex-direction:column;
-    //justify-content: center;
+    justify-content: center;
+    align-items: center;
 `
 
 const StyledWeekdayDiv = styled.div`
@@ -19,7 +27,15 @@ const StyledWeekdayButton= styled.button`
     outline: none;
 `
 
+const StyledBtn= styled.button`
+    border-radius: 50%;
+    outline: none;
+    display: none;
+`
+
 export default function Weekdays(props)  {
+    const [weekdayValue, setWeekdayValue ] = useState(false);
+
 
     const daysOfTheWeek= [{
         day: 'monday', name: 'M', id: 1}, 
@@ -86,7 +102,7 @@ export default function Weekdays(props)  {
     
         
     return (
-        <div>
+        <StyledWeekdaysContainer>
         <StyledWeekdays>
             <h2>Weekdays to water</h2>
             <div></div>
@@ -95,9 +111,12 @@ export default function Weekdays(props)  {
                 <StyledWeekdayButton key={daysOfTheWeek.id} className={color.active ? 'clicked' : ''} onClick={() => PassDays(day.day)}>{day.name}</StyledWeekdayButton>
                 )}
         </StyledWeekdayDiv>
+        <StyledBtn onClick={sendSchedule}>send</StyledBtn>
         </StyledWeekdays>
-        <button onClick={sendSchedule}>send</button>
-        </div>
+        <Toggle 
+         isOn={weekdayValue}
+         handleToggle={() => setWeekdayValue(!weekdayValue)} />
+        </StyledWeekdaysContainer>
     )
 }
 
