@@ -178,5 +178,8 @@ export default connect(
 
 // export default connect(
 //     mapStateToProps,
-//     { getWeekday}
+//     { postWeekday}
 // )(Weekdays);
+
+// localStorage.setItem("id", res.data.id) //set to storage
+// JSON.parse(localStorage.setItem("id", res.data.id)) //get token from storage
