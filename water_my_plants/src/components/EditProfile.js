@@ -16,7 +16,7 @@ const EditProfile = props => {
 
     const handleUpdate = e => {
         e.preventDefault();
-        props.update(formState)
+        // props.update(formState)
         setEditing(false);
         console.log(`CARD ${props.user} Guud`);
     };
@@ -38,12 +38,12 @@ const EditProfile = props => {
     ) : (
             <div className="updated-user">
                 <h1>Account Settings </h1>
-                <h3>Username</h3>
+                <h4>Username</h4>
                 <p>{props.name}</p>
-                <h3>Telephone number</h3>
+                <h4>Telephone number</h4>
                 <p>{props.number}</p>
                 <button>Cancel</button>
-                <button onClick={handleEdit}>Save/Update</button>
+                <button onClick={handleEdit}>Save</button>
             </div>
     );
 };
