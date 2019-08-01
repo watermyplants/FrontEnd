@@ -5,7 +5,8 @@ import NewPlant from "./NewPlant";
 import EditPlant from "./EditPlant";
 import DeletePlant from "./DeletePlant";
 import Plant from "./Plant";
-import Nav from './nav.js'
+import Nav from './nav';
+
 
 // "PlantList" **************************************************************************
 // Initial State Passed in:
@@ -61,7 +62,13 @@ const PlantList = props => {
 
   return (
     <div className="App">
+<<<<<<< HEAD
       <Nav/>
+=======
+    
+      <Nav />
+    
+>>>>>>> 45c1973634031de995ffa210e95b1fb9df8bb74c
       <h1>Test</h1>
       
     
