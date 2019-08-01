@@ -111,7 +111,10 @@ export default function Weekdays(props)  {
                 <StyledWeekdayButton key={daysOfTheWeek.id} className={color.active ? 'clicked' : ''} onClick={() => PassDays(day.day)}>{day.name}</StyledWeekdayButton>
                 )}
         </StyledWeekdayDiv>
-        <StyledBtn onClick={sendSchedule}>send</StyledBtn>
+        <Toggle
+        isOn={weekdayValue}
+        handleToggle={() => setWeekdayValue(!weekdayValue)}
+         />
         </StyledWeekdays>
         <button onClick={sendSchedule}>Set Schedule</button>
         </StyledWeekdaysContainer>
