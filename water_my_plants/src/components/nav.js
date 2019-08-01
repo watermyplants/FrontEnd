@@ -78,6 +78,11 @@ const Nav = props => {
     search: ""
   });
 
+  const [ formState, setFormState ] = useState({
+      name:'Leah Potter',
+      number: '+1 (757) 932-3498'
+  })
+
   function submitHandler(event) {
     event.preventDefault();
     console.log("navs", setNavsSearch);
@@ -115,7 +120,7 @@ const Nav = props => {
           <StyledPopUpContainer>
             <img src={img} alt='user image in popup' />
             <h3>Leah Potter</h3>
-            <p>+1 (757) 932 - 3498</p>
+            <p>+1 (757) 932-3498</p>
           </StyledPopUpContainer>
           <StyledEditBtnContainer>
             <Popup trigger={<EditAccount>EDIT ACCOUNT DETAILS</EditAccount>} position='left'>
