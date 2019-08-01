@@ -9,7 +9,6 @@ const Plant = props => {
   return (
     <div>
       <hr />
-
       <h1>{props.name}</h1>
       <h1>{props.type}</h1>
       <h1>{props.location}</h1>

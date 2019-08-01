@@ -114,19 +114,21 @@ export const putPlants = (editPlants, plantId) => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const deletePlants = (removePlants, plantId) => dispatch => {
+export const deletePlants = plantId => dispatch => {
   dispatch({ type: DELETE_PLANT_START });
   const userId = localStorage.getItem("id");
+
   return Axios.delete(
+    // `https://watermp.herokuapp.com/dashboard/${userId}/my_plant/${plantId}/remove`,
     `https://watermp.herokuapp.com/dashboard/${userId}/my_plant/${plantId}/remove`,
-    removePlants,
+    // removePlants,
     {
       headers: { Authorization: localStorage.getItem("token") }
     }
   )
     .then(res => {
       console.log("RES deletePlants", res);
-      //   dispatch({type: DELETE_PLANT_SUCCESS, payload: res.data})
+      dispatch({ type: DELETE_PLANT_SUCCESS, payload: plantId });
     })
     .catch(err => console.log(err));
 };
