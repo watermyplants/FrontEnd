@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { getPlants } from "../actions/actions";
 import NewPlant from "./NewPlant";
-import Nav from './nav';
 import EditPlant from "./EditPlant";
 
 export const PlantList = props => {
@@ -27,7 +26,6 @@ export const PlantList = props => {
 
   return (
     <div className="App">
-      <Nav />
       <NewPlant add={submitPlant} />
 
       {/* MAPS OVER PLANTS AND CREATES A CARD */}

@@ -1,13 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import img from './photos/testimonial1.jpg'
 import styled from 'styled-components';
 
 
 
-const EditProfile = () => {
-//  const [editing, setEditing ] = useState(false);
-//  const initialFormState = { name:'', number: ''}
-//  const [account, setAccount ] = useState(initialFormState)
+const EditProfile = (props) => {
+ const [editing, setEditing ] = useState(false);
+ const [ formState, setFormState ] = useState({
+     name:'Leah Potter',
+     number:'4196667777'
+ })
+
+
+ function submitHandler(event) {
+     event.preventDefault()
+     if(editing === true){
+         setEditing(false)
+     } else{
+            setEditing(true)        
+     }
+  }
+
+  useEffect(() => {
+      setFormState(props.user || {name: '', number: ''})
+      setEditing(true)
+  }, [props.user])
 
 
 const StyledEditBtn = styled.button`
@@ -15,6 +32,7 @@ border: none;
 outline: none;
 background: white;
 color: teal;
+cursor: pointer;
 `;
 
     return(
@@ -27,14 +45,14 @@ color: teal;
             </div>
             <div className='middle-content'>
                 <div className='edit-info'>
-                    <h4>Leah Potter</h4>
+                    <h4>{formState.name}</h4>
                     <StyledEditBtn>Edit name</StyledEditBtn>
-                    <p>+1(757) 932-3498</p>
+                    <p>{formState.number}</p>
                     <StyledEditBtn>Edit mobile number</StyledEditBtn>
                 </div>
                 <div className='bottom-content'>
                     <button>Cancel</button>
-                    <button>Save</button>
+                    <button onClick={submitHandler}>Save</button>
                 </div> 
             </div>
         </div>
