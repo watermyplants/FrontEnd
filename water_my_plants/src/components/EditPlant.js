@@ -1,74 +1,79 @@
 import React, { useState } from "react";
 import DeletePlant from "./DeletePlant";
 
-//************************* Edit Plant *************************
+// "EditPlant.js" ***********************************************************************
+// Initial State Passed in: 
+//     'plant' (name, type, location, id) | 'update' (function) 
+// **************************************************************************************
 
 const EditPlant = props => {
 
-    //************************* State setup *************************
+    // **************************************************************************************
+    //  Sets up state for inputs and editing
+    // **************************************************************************************
+
     const { name, type, location, id } = props.plant;
     const [input, setInput] = useState({ name: name, type: type, location: location, id: id });
     const [editing, setEditing] = useState(false);
-    const [deleting, setDelete] = useState(false);
     
-    //************************* Form Handlers *************************
+    // **************************************************************************************
+    // "handleEdit" will set 'editing' to false.
 
-    const handleDelete = e => {
-        setDelete(!deleting)
-        console.log(deleting);
-    }
+    // "inputHandler" tracks the input fields into state 'input'. 'editing' === 'true' during this process
+
+    //  "handleUpdate" will update the card by calling 'update' with a param of 'input'
+    // **************************************************************************************
+
     const handleEdit = e => {
         setEditing(!editing);
     };
 
     const inputHandler = e => {
         setInput({ ...input, [e.target.name]: e.target.value });
+        console.log("EDITING IN PROGRESS...");
     };
 
     const handleUpdate = e => {
         e.preventDefault();
         props.update(input);
         setEditing(false);
+        console.log(`CARD ${props.plant.id} UPDATED SUCESSFULLY`);
     };
 
-    //************************* Edit Form *************************
-    //Uses turnary opperator to check if edditing is in progress.. returns values once submited
+    // Edit Form *****************************************************************************
+    // Uses turnary opperator to check if edditing is in progress.. returns values once submited
+    //  **************************************************************************************
     return editing ? (
             <form onSubmit={handleUpdate} className="new-plant">
                 <h1>Edit Plant</h1>
                 <div>
-
                     <label htmlFor="Name">
-                    Name:{" "}
-                    <input type="text" value={input.name} onChange={inputHandler} name="name" />
+                        Name:{" "}
+                        <input type="text" value={input.name} onChange={inputHandler} name="name" />
                     </label>
 
                     <label htmlFor="Type">
-                    Type:{" "}
-                    <input type="text" value={input.type} onChange={inputHandler} name="type" />
+                        Type:{" "}
+                        <input type="text" value={input.type} onChange={inputHandler} name="type" />
                     </label>
 
                     <label htmlFor="Location">
-                    Location:{" "}
-                    <input type="text" value={input.location} onChange={inputHandler} name="location" />
+                        Location:{" "}
+                        <input type="text" value={input.location} onChange={inputHandler} name="location" />
                     </label>
-                    
                 </div>
                 <button>Update</button>
             </form>
     ) : (
-        <form onSubmit={(e)=> {return <div className="hidden"></div>}}>
             <div className="new-plant">
                 <h3>Name</h3>
-                <p>{name}</p>
+                <p>{ name }</p>
                 <h3>Type</h3>
-                <p>{type}</p>
+                <p>{ type }</p>
                 <h3>Location</h3>
-                <p>{location}</p>
+                <p>{ location }</p>
                 <button onClick={handleEdit}>Edit</button>
             </div>
-            <button>Delete</button>
-        </form>
     );
 };
 
