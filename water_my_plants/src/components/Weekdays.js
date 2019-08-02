@@ -7,9 +7,10 @@ import axios from 'axios'
 
 const StyledWeekdaysContainer = styled.div`
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 background: white;
+
 `;
 
 const StyledWeekdays = styled.div`
@@ -20,12 +21,17 @@ const StyledWeekdays = styled.div`
 `
 
 const StyledWeekdayDiv = styled.div`
-    // display: flex
+    display: flex
+    width: 17rem;
 `
 
 const StyledWeekdayButton= styled.button`
     border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 1%;
     outline: none;
+    background-color: #D0D0D0;
 `
 
 const StyledSchedulebtn= styled.button`
@@ -41,8 +47,18 @@ cursor:pointer;
 
 const StyledH4 = styled.h4`
 color: teal;
-font-size: 20px;
+font-size: 15px;
 `;
+
+const StyledTitleToggleDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 18rem;
+    margin-left: 7%;
+    height: 45px;
+    margin-top: 2%;
+`
 
 
 export default function Weekdays()  {
@@ -115,8 +131,14 @@ export default function Weekdays()  {
     return (
         <StyledWeekdaysContainer>
         <StyledWeekdays>
+            <StyledTitleToggleDiv>
             <StyledH4>Weekdays to water</StyledH4>
-            <div></div>
+            <Toggle
+            isOn={weekdayValue}
+            handleToggle={() => setWeekdayValue(!weekdayValue)}
+            toggleid='this'
+            />
+            </StyledTitleToggleDiv>
         <StyledWeekdayDiv>
             {daysOfTheWeek.map((day) =>
                 <StyledWeekdayButton key={day.id} className={color.active.includes(day.day) ? 'clicked' : ''} onClick={() => PassDays(day.day)}>{day.name}</StyledWeekdayButton>
@@ -124,11 +146,6 @@ export default function Weekdays()  {
         </StyledWeekdayDiv>
             <StyledSchedulebtn onClick={sendSchedule}>Set Schedule</StyledSchedulebtn>
         </StyledWeekdays>
-            <Toggle
-            isOn={weekdayValue}
-            handleToggle={() => setWeekdayValue(!weekdayValue)}
-            toggleid='this'
-            />
         </StyledWeekdaysContainer>
     )
 }
