@@ -30,7 +30,7 @@ const NewPlant = props => {
 
   // ************************* Form
   const StyledContainer = styled.div`
-    width: 715px;
+    width: 700px;
     // border: 1px solid red;
     background-color: #e7e7e7;
     margin: 0 auto;
@@ -110,7 +110,7 @@ const NewPlant = props => {
   return (
     <StyledContainer>
       <form onSubmit={submitHandler} className="form">
-        <StyledH1>Add Plant/Watering Scedule</StyledH1>
+        <StyledH1>Add Plant/Watering Schedule</StyledH1>
 
         <StyledInputContainer className="input-container">
           {/* Name of plant input */}

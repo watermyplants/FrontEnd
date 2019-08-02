@@ -15,7 +15,7 @@ const StyledInnerPlantDiv = styled.div`
     width: 95%;
     margin: 0 auto;
     border-radius: 2px;
-    height: 240px;
+    height: 230px;
 `
 const StyledPlantName = styled.h1`
     font-size: 1.3rem;
@@ -59,7 +59,11 @@ const StyledWaterDiv = styled.div`
     margin: 0 auto;
     height: 12%;
 `
-
+const StyledNameDiv = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+`
 
 
 
@@ -72,7 +76,10 @@ const Plant = props => {
   return (
     <StyledPlantdiv>
       <hr />
+      <StyledNameDiv>
       <StyledPlantName>{props.name}</StyledPlantName>
+      <span>...</span>
+      </StyledNameDiv>
       <StyledInnerPlantDiv>
         <StyledinfoDiv>
       <StyledTypeh2>Type: </StyledTypeh2>

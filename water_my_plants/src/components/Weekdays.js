@@ -56,10 +56,11 @@ const StyledTitleToggleDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 18rem;
+    width: 20rem;
     margin-left: 7%;
     height: 45px;
     margin-top: 2%;
+    // border: 1px solid red;
 `
 
 

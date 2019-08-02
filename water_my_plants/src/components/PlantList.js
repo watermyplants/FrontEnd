@@ -22,10 +22,15 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: row-reverse;
 `
-const StyledCardDiv = styled.div`
+const StyledCardsDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
 `
+
+const StyledCardDiv = styled.div`
+    // border: 1px solid red;
+`
+
 
 const PlantList = props => {
   console.log("props in Plantlist", props);
@@ -112,9 +117,9 @@ const PlantList = props => {
           <DeletePlant plant={plant} key={props.id} deletePlant={deletePlant} />
         </div>
       ))} */}
-      <StyledCardDiv>
+      <StyledCardsDiv>
       {props.plantData.map(plant => (
-        <div>
+        <StyledCardDiv>
           <Plant
             name={plant.name}
             type={plant.type}
@@ -129,8 +134,8 @@ const PlantList = props => {
               //   deletePlant={deletePlant}
             />
           </div>
-        </div>
-      ))}</StyledCardDiv>
+        </StyledCardDiv>  
+      ))}</StyledCardsDiv>
       </StyledContainer>
     </div>
   );
