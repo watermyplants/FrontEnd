@@ -14,7 +14,7 @@ export default function Interval() {
 
   const StyledIntervalContainer = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background: white;
   `;
@@ -28,7 +28,7 @@ export default function Interval() {
   const StyledDiv = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
   `;
 
@@ -36,11 +36,12 @@ export default function Interval() {
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
+    margin-left: 20px
   `;
 
   const StyledBtn = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   `;
 
@@ -49,6 +50,11 @@ export default function Interval() {
     padding: 0 0 2px 0;
     margin-left: 5px;
     margin-bottom: 5px;
+    outline: none;
+  `;
+
+  const StyledToggle = styled.div`
+  margin-left: 50px;
   `;
 
   function submitHandler(event) {
@@ -64,7 +70,7 @@ export default function Interval() {
     setTimeout(() => setCount(currentCount => currentCount - 1), 1000);
 
   const Button = ({ handleClick, children }) => (
-    <button type="button" onClick={handleClick}>
+    <button className='intervalbtn' type="button" onClick={handleClick}>
       {children}
     </button>
   );
@@ -72,26 +78,28 @@ export default function Interval() {
   return (
     <StyledIntervalContainer>
       <StyledInterval>
-        <h4 className='interval-h4'>Interval</h4>
+        <h4 className="interval-h4">Interval</h4>
         <StyledDiv>
-        <StyledBtn>
-          <p>Every {count} days</p>
-            <Button handleClick={handleIncrement}>+</Button>
-            <Button handleClick={handleDecrement}>-</Button>
+          <StyledBtn>
+            <p className='count-interval'>Every {count} days</p>
+            <Button  handleClick={handleIncrement}>+</Button>
+            <Button  handleClick={handleDecrement}>-</Button>
           </StyledBtn>
           <form onSubmit={submitHandler}>
             <StyledLabel>
-              Start Date:
+              Start Date
               <StyledInput type="date" value={count.date} placeholder="" />
             </StyledLabel>
           </form>
         </StyledDiv>
       </StyledInterval>
+      <StyledToggle>
       <Toggle
         isOn={value}
         handleToggle={() => setValue(!value)}
         toggleid="wat"
       />
+      </StyledToggle>
     </StyledIntervalContainer>
   );
 }

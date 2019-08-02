@@ -12,11 +12,28 @@
   outline: none;
 }
 
+/*  interval */
 
 .interval-h4{
-  font-size: 20px;
+  font-size: 18px;
   color: teal;
+  margin-right: 120px;
 }
+
+.intervalbtn{
+  color: white;
+  background: #78c885;
+  font-size: 20px;
+  padding: 3px 8px 3px 8px;
+  margin-left: 2px;
+  border: none;
+}
+
+.count-interval{
+  margin-right: 51px;
+}
+
+/* Plantlist */
 
 /* Toggle */
 

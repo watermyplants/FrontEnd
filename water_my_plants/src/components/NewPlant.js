@@ -73,8 +73,23 @@ background: #78c885;
 border: none;
 border-radius: 3px;
 outline: none;
-padding: 10px 10px 10px 10px;
+padding: 10px 20px 10px 20px;
 margin-top: 10px;
+margin-right: 5px;
+margin-bottom: 10px;
+cursor:pointer;
+`
+
+const StyledCancelbtn= styled.button`
+color: white;
+background: #78c885;
+border: none;
+border-radius: 3px;
+outline: none;
+padding: 10px 20px 10px 20px;
+margin-top: 10px;
+margin-right: 5px;
+margin-bottom: 10px;
 cursor:pointer;
 `
 
@@ -106,11 +121,13 @@ cursor:pointer;
             <StyledInput type="text" value={ input.location } onChange={ inputHandler } name="location" />
             </StyledLIDiv>
         </StyledInputContainer>
-        <StyledAddbtn>Add Plant</StyledAddbtn>
     </form>
      <Weekdays/>
      <Interval />
      <Notifications/>
+     <StyledCancelbtn>Cancel</StyledCancelbtn>
+     <StyledAddbtn>Add</StyledAddbtn>
+
      </StyledContainer>)
 };
 
