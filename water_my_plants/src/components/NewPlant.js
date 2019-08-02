@@ -76,6 +76,7 @@ outline: none;
 padding: 10px 10px 10px 10px;
 margin-top: 10px;
 cursor:pointer;
+margin-left: 60%;
 `
 
 
