@@ -30,7 +30,7 @@ const NewPlant = props => {
 
   // ************************* Form
   const StyledContainer = styled.div`
-    width: 700px;
+    width: 350px;
     // border: 1px solid red;
     background-color: #e7e7e7;
     margin: 0 auto;
