@@ -54,9 +54,6 @@ const StyledInput = styled.input`
   border-radius: 5px;
 `;
 
-const StyledPopUpContainer = styled.div`
-  background: #f8f9f9;
-`;
 
 const StyledEditBtnContainer = styled.div`
 background: #138D75;
@@ -78,10 +75,8 @@ const Nav = props => {
     search: ""
   });
 
-  const [ formState, setFormState ] = useState({
-      name:'Leah Potter',
-      number: '+1 (757) 932-3498'
-  })
+  const [name, setName] = useState('Leah_Potter')
+  const [number, setNumber ] = useState('+1 (757) 932-3498')
 
   function submitHandler(event) {
     event.preventDefault();
@@ -117,14 +112,14 @@ const Nav = props => {
         </form>
         <StyledButton>Plants</StyledButton>
         <Popup trigger={<StyledImg src={img} alt='user-image'/>} position="bottom right">
-          <StyledPopUpContainer>
+          <div>
             <img src={img} alt='user image in popup' />
-            <h3>Leah Potter</h3>
-            <p>+1 (757) 932-3498</p>
-          </StyledPopUpContainer>
+            <h3>{name}</h3>
+            <p>{number}</p>
+          </div>
           <StyledEditBtnContainer>
             <Popup trigger={<EditAccount>EDIT ACCOUNT DETAILS</EditAccount>} position='left'>
-                <EditProfile />
+                <EditProfile setName={setName} setNumber={setNumber} />
             </Popup>       
          </StyledEditBtnContainer>
         </Popup>

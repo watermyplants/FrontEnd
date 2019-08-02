@@ -50,17 +50,17 @@ margin-right: 0;
 const StyledH4 = styled.h4`
 color: teal;
 font-size: 15px;
+margin-right: 58px;
 `;
 
 const StyledTitleToggleDiv = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 20rem;
-    margin-left: 7%;
+    margin-left:  5%;
     height: 45px;
     margin-top: 2%;
-    // border: 1px solid red;
 `
 
 

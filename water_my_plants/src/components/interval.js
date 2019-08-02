@@ -69,7 +69,7 @@ export default function Interval() {
   const handleDecrement = () =>
     setTimeout(() => setCount(currentCount => currentCount - 1), 1000);
 
-  const Button = ({ handleClick, children }) => (
+  const Button = ({ handleClick, children}) => (
     <button className='intervalbtn' type="button" onClick={handleClick}>
       {children}
     </button>
