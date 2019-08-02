@@ -2,10 +2,12 @@
   text-align: center;
 }
 
-
+.weekdaybtn {
+  background-color: #D0D0D0;
+}
 
 .clicked{
-  background-color: #F9FF00;
+  background-color: #acacac;
   border-radius: 50%;
   outline: none;
 }

@@ -31,7 +31,6 @@ const StyledWeekdayButton= styled.button`
     height: 30px;
     margin: 1%;
     outline: none;
-    background-color: #D0D0D0;
 `
 
 const StyledSchedulebtn= styled.button`
@@ -141,7 +140,7 @@ export default function Weekdays()  {
             </StyledTitleToggleDiv>
         <StyledWeekdayDiv>
             {daysOfTheWeek.map((day) =>
-                <StyledWeekdayButton key={day.id} className={color.active.includes(day.day) ? 'clicked' : ''} onClick={() => PassDays(day.day)}>{day.name}</StyledWeekdayButton>
+                <StyledWeekdayButton key={day.id} className={color.active.includes(day.day) ? 'clicked' : 'weekdaybtn'} onClick={() => PassDays(day.day)}>{day.name}</StyledWeekdayButton>
                 )}
         </StyledWeekdayDiv>
             <StyledSchedulebtn onClick={sendSchedule}>Set Schedule</StyledSchedulebtn>
