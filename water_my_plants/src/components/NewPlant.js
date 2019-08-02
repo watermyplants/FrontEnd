@@ -67,6 +67,16 @@ const Styledlabel = styled.label`
     font-size: 14px;
     color: #7EA897;
 `
+const StyledAddbtn= styled.button`
+color: white;
+background: #78c885;
+border: none;
+border-radius: 3px;
+outline: none;
+padding: 10px 10px 10px 10px;
+margin-top: 10px;
+cursor:pointer;
+`
 
 
   return (
@@ -96,7 +106,7 @@ const Styledlabel = styled.label`
             <StyledInput type="text" value={ input.location } onChange={ inputHandler } name="location" />
             </StyledLIDiv>
         </StyledInputContainer>
-        <button>Add Plant</button>
+        <StyledAddbtn>Add Plant</StyledAddbtn>
     </form>
      <Weekdays/>
      <Interval />
