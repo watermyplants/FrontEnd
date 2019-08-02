@@ -75,7 +75,7 @@ export const getPlants = userId => dispatch => {
 export const postPlants = addPlants => dispatch => {
   const userId = localStorage.getItem("id");
   const auth = localStorage.getItem("token");
-  console.log("postPlants", addPlants);
+  console.log("postPlants addPlants", addPlants);
   console.log("postPlants auth", auth);
   dispatch({ type: ADD_PLANT_START });
   //   console.log("UserId", userId);
@@ -83,17 +83,18 @@ export const postPlants = addPlants => dispatch => {
   return axiosWithAuth()
     .post(
       `/dashboard/${userId}/plants/add`,
+      addPlants
 
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: auth
-        }
-      }
+      //   {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Authorization: auth
+      //     }
+      //   }
     )
     .then(res => {
       console.log("RES postPlants", res);
-      dispatch({ type: ADD_PLANT_SUCCESS, payload: addPlants });
+      dispatch({ type: ADD_PLANT_SUCCESS, payload: res.data });
     })
     .catch(
       err => console.log(err.response)
@@ -105,13 +106,14 @@ export const putPlants = plantId => dispatch => {
   dispatch({ type: UPDATE_PLANT_START });
   const userId = localStorage.getItem("id");
 
-  return Axios.put(
-    `https://watermp.herokuapp.com/dashboard/${userId}/my_plant/${plantId}/update`,
+  return axiosWithAuth()
+    .put(
+      `/${userId}/my_plant/${plantId}/update`
 
-    {
-      headers: { Authorization: localStorage.getItem("token") }
-    }
-  )
+      // {
+      //   headers: { Authorization: localStorage.getItem("token") }
+      // }
+    )
     .then(res => {
       console.log("RES putPlants", res);
       dispatch({ type: UPDATE_PLANT_SUCCESS, payload: res.data });

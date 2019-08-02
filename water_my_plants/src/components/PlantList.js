@@ -93,7 +93,8 @@ const PlantList = props => {
       <Nav />
 
       {/* Creates a new plant and submits info, taken from the form, to state (plants) */}
-      <NewPlant add={submitPlant} />
+      {/* <NewPlant add={submitPlant} /> */}
+      <NewPlant />
 
       {/* Maps over 'plants' and creates a card via "EditPlant" component with props passed from 'plants' */}
       {/* {plants.map((plant, i) => (
