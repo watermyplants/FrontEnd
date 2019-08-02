@@ -30,17 +30,22 @@ const NewPlant = props => {
 
   // ************************* Form
   const StyledContainer = styled.div`
-    width: 21rem;
+    width: 715px;
+    // border: 1px solid red;
     background-color: #e7e7e7;
     margin: 0 auto;
     border-radius: 2px;
+    margin-top: 2.4%;
+    margin-right: 5%;
+    height: 600px;
   `;
   const StyledInputContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 5%;
+    padding-left: 2%;
     padding-right: 5%;
+    padding-bottom: 5%;
   `;
 
   const StyledH1 = styled.h1`
@@ -59,7 +64,7 @@ const NewPlant = props => {
   const StyledLIDiv = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 95%;
+    width: 100%;
     margin-bottom: 1%;
     align-items: flex-end;
   `;
@@ -68,21 +73,6 @@ const NewPlant = props => {
     display: flex;
     justify-content: space-between;
     font-size: 14px;
-<<<<<<< HEAD
-    color: #7EA897;
-`
-const StyledAddbtn= styled.button`
-color: white;
-background: #78c885;
-border: none;
-border-radius: 3px;
-outline: none;
-padding: 10px 10px 10px 10px;
-margin-top: 10px;
-cursor:pointer;
-margin-left: 60%;
-`
-=======
     color: #7ea897;
   `;
   const StyledAddbtn = styled.button`
@@ -112,7 +102,6 @@ margin-left: 60%;
     margin-bottom: 10px;
     cursor: pointer;
   `;
->>>>>>> c49e1ea9551b8a01a46b0cc389897b1453401d4a
 
   const StyledBtnDiv = styled. div`
    margin-left: 110px;

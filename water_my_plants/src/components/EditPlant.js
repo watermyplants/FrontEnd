@@ -66,12 +66,12 @@ const EditPlant = props => {
             </form>
     ) : (
             <div className="new-plant">
-                <h3>Name</h3>
+                {/* <h3>Name</h3>
                 <p>{ name }</p>
                 <h3>Type</h3>
                 <p>{ type }</p>
                 <h3>Location</h3>
-                <p>{ location }</p>
+                <p>{ location }</p> */}
                 <button onClick={handleEdit}>Edit</button>
             </div>
     );
