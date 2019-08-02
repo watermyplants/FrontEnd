@@ -12,7 +12,7 @@ import {
 // **************************************************************************************
 
 const DeletePlant = props => {
-  console.log("Delete props", props);
+  //   console.log("Delete props", props);
   const [deleting, setDelete] = useState(false);
 
   const handleDelete = e => {

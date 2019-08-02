@@ -24,7 +24,7 @@ const PlantList = props => {
     props.getPlants(localStorage.getItem("id"));
   }, []);
   // POST CALL
-  //   const test = { name: "test", type: "test type", location: "test loc" };
+  //   const test = { name: "hello", type: "hello", location: "hello" };
   //   useEffect(() => {
   //     props.postPlants(test);
   //   }, []);

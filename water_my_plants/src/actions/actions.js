@@ -20,6 +20,7 @@ import {
 } from "../actions/types";
 
 import Axios from "axios";
+import { axiosWithAuth } from "../helpers/axiosConfig";
 
 //Register Action
 
@@ -72,37 +73,41 @@ export const getPlants = userId => dispatch => {
 };
 
 export const postPlants = addPlants => dispatch => {
-  console.log("Test");
-  dispatch({ type: ADD_PLANT_START });
   const userId = localStorage.getItem("id");
-  console.log("AddPlants", addPlants);
-  console.log("UserId", userId);
+  const auth = localStorage.getItem("token");
+  console.log("postPlants", addPlants);
+  console.log("postPlants auth", auth);
+  dispatch({ type: ADD_PLANT_START });
+  //   console.log("UserId", userId);
 
-  return Axios.post(
-    `https://watermp.herokuapp.com/dashboard/${userId}/plants/add`,
-    addPlants,
+  return axiosWithAuth()
+    .post(
+      `/dashboard/${userId}/plants/add`,
 
-    {
-      headers: { Authorization: localStorage.getItem("token") }
-    }
-  )
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: auth
+        }
+      }
+    )
     .then(res => {
       console.log("RES postPlants", res);
-      dispatch({ type: ADD_PLANT_SUCCESS, payload: res.data });
+      dispatch({ type: ADD_PLANT_SUCCESS, payload: addPlants });
     })
     .catch(
-      err => console.log(err)
+      err => console.log(err.response)
       //   dispatch({ type: ADD_PLANT_FAILURE, payload: err.data.error })
     );
 };
 
-export const putPlants = (editPlants, plantId) => dispatch => {
+export const putPlants = plantId => dispatch => {
   dispatch({ type: UPDATE_PLANT_START });
   const userId = localStorage.getItem("id");
 
   return Axios.put(
     `https://watermp.herokuapp.com/dashboard/${userId}/my_plant/${plantId}/update`,
-    editPlants,
+
     {
       headers: { Authorization: localStorage.getItem("token") }
     }

@@ -97,6 +97,11 @@ export const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         plantData: payload,
+        // plantData: state.plantData.map(plant => plant.id === payload),
+        // plantData: {
+        //   id: state.plantData[state.plantData.length - 1].id + 1,
+        //   plant: payload
+        // },
         weekday: payload,
         isFetching: false,
         error: ""
