@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from 'styled-components'
 import { connect } from "react-redux";
 import {
   getPlants,
@@ -10,6 +11,21 @@ import {
 // Initial State Passed in:
 //     'plant' (name, type, location, id) | deletePlant (function)
 // **************************************************************************************
+
+const StyledAddbtn = styled.button`
+color: white;
+background: #78c885;
+border: none;
+font-size: 13px;
+border-radius: 3px;
+outline: none;
+padding: 10px 30px 10px 30px;
+margin-top: 10px;
+margin-right: 5px;
+margin-bottom: 10px;
+cursor: pointer;
+`
+
 
 const DeletePlant = props => {
   console.log("Delete props", props);
@@ -29,7 +45,7 @@ const DeletePlant = props => {
   ) : (
     <div>
       <form onSubmit={handleDelete}>
-        <button>Delete</button>
+        <StyledAddbtn>Delete</StyledAddbtn>
       </form>
     </div>
   );

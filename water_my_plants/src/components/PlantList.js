@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from 'styled-components'
 import { connect } from "react-redux";
 import {
   getPlants,
@@ -16,6 +17,20 @@ import Nav from "./nav";
 // Initial State Passed in:
 //     Empty object
 // **************************************************************************************
+
+const StyledContainer = styled.div`
+    display: flex;
+    flex-direction: row-reverse;
+`
+const StyledCardsDiv = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`
+
+const StyledCardDiv = styled.div`
+    // border: 1px solid red;
+`
+
 
 const PlantList = props => {
   console.log("props in Plantlist", props);
@@ -91,7 +106,7 @@ const PlantList = props => {
   return (
     <div className="App">
       <Nav />
-
+    <StyledContainer>
       {/* Creates a new plant and submits info, taken from the form, to state (plants) */}
       <NewPlant add={submitPlant} />
 
@@ -102,8 +117,9 @@ const PlantList = props => {
           <DeletePlant plant={plant} key={props.id} deletePlant={deletePlant} />
         </div>
       ))} */}
+      <StyledCardsDiv>
       {props.plantData.map(plant => (
-        <div>
+        <StyledCardDiv>
           <Plant
             name={plant.name}
             type={plant.type}
@@ -118,8 +134,9 @@ const PlantList = props => {
               //   deletePlant={deletePlant}
             />
           </div>
-        </div>
-      ))}
+        </StyledCardDiv>  
+      ))}</StyledCardsDiv>
+      </StyledContainer>
     </div>
   );
 };

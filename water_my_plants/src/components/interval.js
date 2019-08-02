@@ -54,7 +54,7 @@ export default function Interval() {
   `;
 
   const StyledToggle = styled.div`
-  margin-left: 50px;
+  margin-left: 55px;
   `;
 
   function submitHandler(event) {

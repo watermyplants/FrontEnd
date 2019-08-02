@@ -23,6 +23,7 @@ const StyledWeekdays = styled.div`
 const StyledWeekdayDiv = styled.div`
     display: flex
     width: 17rem;
+    
 `
 
 const StyledWeekdayButton= styled.button`
@@ -42,6 +43,8 @@ outline: none;
 padding: 10px 10px 10px 10px;
 margin-top: 10px;
 cursor:pointer;
+margin-left: 60%;
+margin-right: 0;
 `
 
 const StyledH4 = styled.h4`
@@ -53,10 +56,11 @@ const StyledTitleToggleDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 18rem;
+    width: 20rem;
     margin-left: 7%;
     height: 45px;
     margin-top: 2%;
+    // border: 1px solid red;
 `
 
 

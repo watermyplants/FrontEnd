@@ -30,17 +30,22 @@ const NewPlant = props => {
 
   // ************************* Form
   const StyledContainer = styled.div`
-    width: 21rem;
+    width: 700px;
+    // border: 1px solid red;
     background-color: #e7e7e7;
     margin: 0 auto;
     border-radius: 2px;
+    margin-top: 2.4%;
+    margin-right: 5%;
+    height: 600px;
   `;
   const StyledInputContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 5%;
+    padding-left: 2%;
     padding-right: 5%;
+    padding-bottom: 5%;
   `;
 
   const StyledH1 = styled.h1`
@@ -59,7 +64,7 @@ const NewPlant = props => {
   const StyledLIDiv = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 95%;
+    width: 100%;
     margin-bottom: 1%;
     align-items: flex-end;
   `;
@@ -105,7 +110,7 @@ const NewPlant = props => {
   return (
     <StyledContainer>
       <form onSubmit={submitHandler} className="form">
-        <StyledH1>Add Plant/Watering Scedule</StyledH1>
+        <StyledH1>Add Plant/Watering Schedule</StyledH1>
 
         <StyledInputContainer className="input-container">
           {/* Name of plant input */}
