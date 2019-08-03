@@ -103,24 +103,25 @@ const PlantList = props => {
           <DeletePlant plant={plant} key={props.id} deletePlant={deletePlant} />
         </div>
       ))} */}
-      {props.plantData.map(plant => (
-        <div>
-          <Plant
-            name={plant.name}
-            type={plant.type}
-            location={plant.location}
-            key={props.id}
-          />
+      {props.plantData &&
+        props.plantData.map(plant => (
           <div>
-            <EditPlant plant={plant} key={props.id} update={update} />
-            <DeletePlant
-              plant={plant}
+            <Plant
+              name={plant.name}
+              type={plant.type}
+              location={plant.location}
               key={props.id}
-              //   deletePlant={deletePlant}
             />
+            <div>
+              <EditPlant plant={plant} key={props.id} update={update} />
+              <DeletePlant
+                plant={plant}
+                key={props.id}
+                //   deletePlant={deletePlant}
+              />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };
